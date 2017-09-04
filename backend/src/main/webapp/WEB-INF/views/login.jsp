@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>xx后台管理系统</title>
+    <title>网上支部我的家-后台管理系统</title>
     <link href="${basePath}/css/index.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${basePath}/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="${basePath}/css/iconfont.css"/>
@@ -18,7 +18,7 @@
 <img src="${basePath}/images/bg.png" alt="" id="bg_img"/>
 
 <div id="content">
-    <div id="main_tit">驾嗨后台管理系统</div>
+    <div id="main_tit">网上支部我的家-后台管理系统</div>
 
     <div id="login">
 

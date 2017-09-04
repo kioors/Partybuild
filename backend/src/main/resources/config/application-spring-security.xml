@@ -1,0 +1,69 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+    <!-- 静态资源 -->
+    <http security="none" pattern="/ajax/**"/>
+    <http security="none" pattern="/css/**"/>
+    <http security="none" pattern="/fonts/**"/>
+    <http security="none" pattern="/images/**"/>
+    <http security="none" pattern="/js/**"/>
+
+    <!-- 公共访问域 比如分享页面-->
+    <http auto-config="true" use-expressions="true">
+
+        <csrf disabled="true"/>
+        <!-- 登录 -->
+        <form-login login-page='/login' login-processing-url="/dologin" default-target-url='/loading'
+                    username-parameter="mobile"
+                    password-parameter="password"
+                    authentication-failure-url="/login?login_error=t"
+        />
+
+        <intercept-url pattern="/login*" access="permitAll"/>
+        <intercept-url pattern="/tobackpassword*" access="permitAll"/>
+        <intercept-url pattern="/wechat/*" access="permitAll"/>
+        <intercept-url pattern="/changepassok*" access="permitAll"/>
+        <intercept-url pattern="/changepass*" access="permitAll"/>
+        <intercept-url pattern="/fileupload*" access="permitAll"/>
+        <intercept-url pattern="/**" access="hasAnyRole('ROLE_GARAGE','ROLE_SERVICE')"/>
+
+        <!-- 错误跳转页面 -->
+        <!--<access-denied-handler error-page="/errorPage"/>-->
+        <!-- 退出登录 -->
+        <logout logout-url="/logout" logout-success-url="/login" invalidate-session="true"/>
+
+        <!-- 找回密码 -->
+        <logout logout-url="/tobackpassword" logout-success-url="/tobackpassword" invalidate-session="true"/>
+
+
+        <!--尝试访问没有权限的页面时跳转的页面 -->
+        <access-denied-handler error-page="/403.jsp"/>
+
+        <!-- 会话管理，一个 -->
+        <session-management invalid-session-url="/login?expired=true">
+            <concurrency-control max-sessions="1" error-if-maximum-exceeded="false" expired-url="/login?expired=true"/>
+        </session-management>
+    </http>
+
+
+    <authentication-manager alias="myAuthenticationManager">
+        <authentication-provider user-service-ref="userService">
+            <password-encoder ref="passwordEncoder">
+                <salt-source user-property="mobile"/>
+            </password-encoder>
+        </authentication-provider>
+    </authentication-manager>
+
+    <!-- security注解
+        @PreAuthorize / @PostAuthorize / @Secured
+        ：@PostAuthorize ("returnObject.type == authentication.name")
+          @PreAuthorize("hasRole('ADMIN') AND hasRole('DBA')")
+     -->
+    <!--<security:global-method-security secured-annotations="enabled" pre-post-annotations="enabled" proxy-target-class="true" />-->
+
+</beans:beans>

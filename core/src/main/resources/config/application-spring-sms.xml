@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--&lt;!&ndash; 将原有系统配置搬过来&ndash;&gt;-->
+    <!--<bean id="securityCodeService" class="com.kingyon.common.services.impl.SMSService">-->
+    <!--<property name="securityCodeLength" value="6"/>-->
+    <!--<property name="redisTemplate" ref="redisTemplate"/>-->
+    <!--</bean>-->
+
+</beans>

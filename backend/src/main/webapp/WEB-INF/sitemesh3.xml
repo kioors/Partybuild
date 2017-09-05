@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sitemesh>
+    <!--<mapping path="/**" decorator="/WEB-INF/layouts/index.jsp" />-->
+    <!--<mapping path="/garage/**" decorator="/WEB-INF/layouts/garage_layout.jsp" />-->
+    <!--<mapping path="/service/**" decorator="/WEB-INF/layouts/service_layout.jsp" />-->
+    <!--<mapping path="/packages/**" decorator="/WEB-INF/layouts/service_layout.jsp" />-->
+
+    <!--<mapping path="/login*" exclue="true"/>-->
+
+
+    <!--<mapping path="/**" decorator="/index" />-->
+    <mapping path="/garage/*" decorator="/garage"/>
+    <mapping path="/service/*" decorator="/service"/>
+
+    <!-- 指明满足“/exclude.jsp*”的页面，将被排除，不被装饰 -->
+
+    <mapping path="/login*" exclue="true"/>
+    <mapping path="/user/user*" exclue="true"/>
+    <!--<mapping path="/role/*" exclue="true"/>-->
+    <!--<mapping path="/resource/*" exclue="true"/>-->
+    <mapping path="/api/*" exclue="true"/>
+    <mapping path="/js/**" exclue="true"/>
+    <mapping path="/ckfinder/**" exclue="true"/>
+
+</sitemesh>

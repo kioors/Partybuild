@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cmn-Hans">
 <% String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
@@ -22,12 +22,12 @@
 <div id="content">
     <div id="main_tit">网上支部我的家-后台管理系统</div>
     <input type="hidden" id="basePath" value="${basePath}"/>
-    <form id="loginForm">
+    <form id="loginForm" method="POST" action="<c:url value='/dologin'/>">
     <div id="login">
 
         <div class="iput_div">
             <i class="iconfont icon-userface"></i>
-            <input type="text" name="username" id="username" value="" placeholder="请输入用户名"/>
+            <input type="text" name="mobile" id="mobile" value="" placeholder="请输入用户名"/>
             <input type="hidden" id="usernameWarn" value="请输入用户名" class="font_red"/>
         </div>
         <div class="iput_div">

@@ -14,7 +14,10 @@
     <version>1.0-SNAPSHOT</version>
     <description>Party Build platform Web APP</description>
     <packaging>pom</packaging>
-
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
     <repositories>
         <repository>
             <id>nexus-kingyon</id>
@@ -63,6 +66,12 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.0.1</version>
                 <scope>provided</scope>
+            </dependency>
+            <!-- sitemesh -->
+            <dependency>
+                <groupId>org.sitemesh</groupId>
+                <artifactId>sitemesh</artifactId>
+                <version>3.0.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

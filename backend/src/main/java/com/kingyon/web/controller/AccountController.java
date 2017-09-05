@@ -117,9 +117,7 @@ public class AccountController extends AbstractController {
     public String loading() {
         Login currentUser = SecurityUtils.getCurrentUser();
         Collection<? extends GrantedAuthority> authorities = currentUser.getAuthorities();
-        if (authorities.contains(new SimpleGrantedAuthority("ROLE_GARAGE"))) {
-            return "redirect:garage/index";
-        } else if (authorities.contains(new SimpleGrantedAuthority("ROLE_SERVICE"))) {
+        if (authorities.contains(new SimpleGrantedAuthority("ROLE_SERVICE"))) {
             return "redirect:service/index";
         }
         return "redirect:/";

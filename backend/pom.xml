@@ -23,6 +23,10 @@
             <groupId>com.kingyon.api</groupId>
             <artifactId>kingyon-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+        </dependency>
     </dependencies>
 
 

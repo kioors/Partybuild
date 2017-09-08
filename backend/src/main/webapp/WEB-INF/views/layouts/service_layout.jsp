@@ -9,11 +9,18 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <script src="${basePath}/js/common/jquery-2.1.0.js"></script>
+
     <link href="${basePath}/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${basePath}/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
     <link href="${basePath}/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="${basePath}/media/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="${basePath}/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="${basePath}/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="${basePath}/css/common.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="${basePath}/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="${basePath}/media/css/select2_metro.css"/>
+    <link rel="stylesheet" type="text/css" href="${basePath}/media/css/chosen.css"/>
+
     <sitemesh:write property='head'/>
 </head>
 <body style="height: 100%;">
@@ -30,59 +37,59 @@
             <li class="start ">
                 <a href="index.html">
                     <i class="icon-home"></i>
-                    <span class="title">Dashboard</span>
+                    <span class="title">主页</span>
                 </a>
             </li>
             <li class="active ">
                 <a href="javascript:;">
                     <i class="icon-table"></i>
-                    <span class="title">Form Stuff</span>
+                    <span class="title">目录一</span>
                     <span class="selected"></span>
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="active">
                         <a href="form_layout.html">
-                            Form Layouts</a>
+                            页面一</a>
                     </li>
                     <li>
                         <a href="form_samples.html">
-                            Advance Form Samples</a>
+                            页面二</a>
                     </li>
                     <li>
                         <a href="form_component.html">
-                            Form Components</a>
+                            页面三</a>
                     </li>
                 </ul>
             </li>
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-briefcase"></i>
-                    <span class="title">Pages</span>
+                    <span class="title">目录二</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a href="page_timeline.html">
                             <i class="icon-time"></i>
-                            Timeline</a>
+                            页面1</a>
                     </li>
                     <li>
                         <a href="page_coming_soon.html">
                             <i class="icon-cogs"></i>
-                            Coming Soon</a>
+                            页面2</a>
                     </li>
                     <li>
                         <a href="page_blog.html">
                             <i class="icon-comments"></i>
-                            Blog</a>
+                            页面3</a>
                     </li>
                 </ul>
             </li>
             <li class="last ">
                 <a href="charts.html">
                     <i class="icon-bar-chart"></i>
-                    <span class="title">Visual Charts</span>
+                    <span class="title">尾部页面</span>
                 </a>
             </li>
         </ul>
@@ -91,9 +98,9 @@
     <!-- END SIDEBAR -->
     <!-- BEGIN PAGE -->
     <div class="page-content" style="height: 100%;">
-        <div class="content_head">
+        <h3 class="content_title">
             <sitemesh:write property='title'/>
-        </div>
+        </h3>
         <div class="content_body">
             <sitemesh:write property='body'></sitemesh:write>
         </div>
@@ -102,6 +109,13 @@
 </div>
 <!-- END CONTAINER -->
 <script src="${basePath}/media/js/bootstrap.min.js"></script>
+<script src="${basePath}/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="${basePath}/media/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${basePath}/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${basePath}/media/js/select2.min.js"></script>
+<script type="text/javascript" src="${basePath}/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="${basePath}/media/js/DT_bootstrap.js"></script>
+<script type="text/javascript" src="${basePath}/media/js/chosen.jquery.min.js"></script>
 <script src="${basePath}/media/js/app.js"></script>
 <script>
     jQuery(document).ready(function () {

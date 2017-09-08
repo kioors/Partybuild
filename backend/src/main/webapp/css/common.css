@@ -1,3 +1,34 @@
 .font_red{
     color: red;
 }
+
+.content_title {
+    padding: 0px;
+    font-size: 20px;
+    letter-spacing: -1px;
+    display: block;
+    color: #666;
+    margin: 0px 0px 15px 0px;
+    padding: 10px 0px 0px 20px;
+    font-weight: 300;
+    font-family: 'Open Sans';
+}
+
+.content_body {
+}
+
+.pagination {
+    margin: 0;
+}
+
+div.dataTables_paginate {
+    float: right;
+}
+
+.dataTables_filter label {
+    float: right;
+}
+
+.row-fluid [class*="span"] {
+    min-height: 0px;
+}

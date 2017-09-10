@@ -9,6 +9,7 @@ var TableManaged = function () {
                 "aoColumns": [
                     {
                         "fnRender": function (data, display, row) {
+                            // return '<div class="checker"><span><input type="checkbox"  value="1" class="checkboxes"/></span></div>';
                             return '<input type="checkbox"  value="' + data + '" class="checkboxes"/>';
                         }
                     },

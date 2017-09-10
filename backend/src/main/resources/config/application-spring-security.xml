@@ -12,6 +12,7 @@
     <http security="none" pattern="/fonts/**"/>
     <http security="none" pattern="/images/**"/>
     <http security="none" pattern="/js/**"/>
+    <http security="none" pattern="/favicon.ico"/>
 
     <!-- 公共访问域 比如分享页面-->
     <http auto-config="true" use-expressions="true">

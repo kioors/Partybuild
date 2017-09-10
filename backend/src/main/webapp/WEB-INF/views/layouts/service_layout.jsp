@@ -4,6 +4,7 @@
 <% String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <c:set var="basePath" value="<%=basePath %>" scope="session"></c:set>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -20,7 +21,6 @@
     <link href="${basePath}/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="${basePath}/media/css/select2_metro.css"/>
     <link rel="stylesheet" type="text/css" href="${basePath}/media/css/chosen.css"/>
-    <span style="white-space:pre">    </span><link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <sitemesh:write property='head'/>
 </head>
 <body style="height: 100%;">

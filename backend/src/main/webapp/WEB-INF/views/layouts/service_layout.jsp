@@ -20,7 +20,7 @@
     <link href="${basePath}/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="${basePath}/media/css/select2_metro.css"/>
     <link rel="stylesheet" type="text/css" href="${basePath}/media/css/chosen.css"/>
-
+    <span style="white-space:pre">    </span><link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <sitemesh:write property='head'/>
 </head>
 <body style="height: 100%;">

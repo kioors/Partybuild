@@ -44,7 +44,8 @@
                                     &nbsp;
                                     <input type="text" class="span3 m-wrap" placeholder="提示语..." id="username"/>
                                     &nbsp;
-                                    <a href="#" class="btn green">查询<i class="m-icon-swapright m-icon-white"></i></a>
+                                    <a href="javascript:;" onclick="refreshList();" class="btn green">查询<i
+                                            class="m-icon-swapright m-icon-white"></i></a>
                                 </div>
 
                             </div>

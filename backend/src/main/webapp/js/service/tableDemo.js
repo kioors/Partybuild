@@ -131,6 +131,6 @@ function retrieveData(sSource111, aoData111, fnCallback111) {
 // }
 //刷新列表
 function refreshList() {
-    $("#tableList").dataTable().fnPageChange('refresh');
+    // $("#tableList").dataTable().fnPageChange('refresh');
     // $("#tableList").dataTable().ajax.reload();;
 }

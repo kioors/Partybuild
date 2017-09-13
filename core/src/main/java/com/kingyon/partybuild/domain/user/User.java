@@ -4,33 +4,64 @@ import com.kingyon.common.domain.AuditedDomain;
 import com.kingyon.common.domain.account.Login;
 import com.kingyon.common.domain.authorization.Resource;
 import com.kingyon.common.domain.authorization.Role;
+import com.kingyon.partybuild.domain.party.Party;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-/**
- * User为运营中心（即后台）的账号
- * <p/>
- *
- * @author <a href="libing@kingyon.com">Libing Huang</a>
- * 2017/7/13 上午11:07
- * @since 0.1.0
- */
 @Entity
 @Table(name = "S_USER")
 public class User extends AuditedDomain implements Login {
 
-    private String name;
+    /**
+     *
+     */
+    public String name;
+
+    /**
+     *
+     */
+    public String phone;
+
+    /**
+     * 头像
+     */
+    public String head;
+
+    /**
+     * 身份
+     */
+    public IdentityType identity;
+
+    /**
+     * 所属
+     */
+    public Party affilication;
+
+    /**
+     * 入党时间
+     */
+    @Column(name = "party_date")
+    public Date partyDate;
+
+    /**
+     *
+     */
+    public String password;
+
+    /**
+     * 绑定账号和手机的机器码
+     */
+    @Column(name = "device_id")
+    public String deviceId;
+
+    /**
+     * 登录名
+     */
     @Column(nullable = false)
     private String mobile;
-
-    //登录密码
-    private String password;
 
     //账号权限
     @ManyToMany(fetch = FetchType.LAZY)
@@ -73,6 +104,7 @@ public class User extends AuditedDomain implements Login {
         }
         return authorities;
     }
+
 
     /**
      * 获取真实姓名
@@ -123,12 +155,65 @@ public class User extends AuditedDomain implements Login {
 
     //********************** Getter and Setter **********************//
 
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getHead() {
+        return head;
+    }
+
+    public void setHead(String head) {
+        this.head = head;
+    }
+
+    public IdentityType getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(IdentityType identity) {
+        this.identity = identity;
+    }
+
+    public Party getAffilication() {
+        return affilication;
+    }
+
+    public void setAffilication(Party affilication) {
+        this.affilication = affilication;
+    }
+
+    public Date getPartyDate() {
+        return partyDate;
+    }
+
+    public void setPartyDate(Date partyDate) {
+        this.partyDate = partyDate;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
     public String getMobile() {
@@ -138,11 +223,6 @@ public class User extends AuditedDomain implements Login {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 
     public Set<Role> getRoles() {
         return roles;

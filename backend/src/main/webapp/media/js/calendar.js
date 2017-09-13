@@ -163,7 +163,7 @@ var Calendar = function () {
                     backgroundColor: App.getLayoutColorCode('grey'),
                     allDay: false,
                 }, {
-                    title: 'Birthday Party',
+                    title: 'Birthday party',
                     start: new Date(y, m, d + 1, 19, 0),
                     end: new Date(y, m, d + 1, 22, 30),
                     backgroundColor: App.getLayoutColorCode('purple'),

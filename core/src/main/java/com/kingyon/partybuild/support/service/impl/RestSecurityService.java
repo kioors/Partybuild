@@ -1,8 +1,6 @@
 package com.kingyon.partybuild.support.service.impl;
 
 import com.kingyon.common.support.util.StringPool;
-import com.kingyon.partybuild.model.MemberModel;
-import com.kingyon.partybuild.service.IMemberService;
 import com.kingyon.partybuild.support.service.IRestSecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -23,9 +21,6 @@ import java.util.concurrent.TimeUnit;
 public class RestSecurityService implements IRestSecurityService {
 
     public static final int OVERDUE_TIME = 7;
-
-    @Autowired
-    private IMemberService memberService;
 
     private static final String ACCOUNT_KEY_PREFIX = "TOKEN ";//access token redis key前缀
 
@@ -97,20 +92,6 @@ public class RestSecurityService implements IRestSecurityService {
     }
 
     @Override
-    public MemberModel getUserByToken(String token) {
-
-        Long userId = redisTemplate.boundValueOps(token).get();
-
-        if (userId != null) {
-
-            setTimeout(token);
-
-            return memberService.getMemberById(userId);
-        }
-        return null;
-    }
-
-    @Override
     public Long getUserIdByToken(String token) {
 
         Long userId = redisTemplate.boundValueOps(token).get();
@@ -130,28 +111,4 @@ public class RestSecurityService implements IRestSecurityService {
         redisTemplate.boundValueOps(openId).expire(OVERDUE_TIME, TimeUnit.DAYS);//一周过期
     }
 
-    @Override
-    public MemberModel getUserByOpenId(String openId) {
-
-        Long userId = redisTemplate.boundValueOps(openId).get();
-
-        if (userId != null) {
-
-            setTimeoutToOpenId(openId);
-
-            return memberService.getMemberById(userId);
-        } else {
-
-            MemberModel consumerModel = memberService.getMemberByOpenId(openId);
-
-            if (consumerModel != null) {
-
-                redisTemplate.boundValueOps(openId).set(consumerModel.getId(), OVERDUE_TIME, TimeUnit.DAYS);
-
-                return consumerModel;
-            }
-
-            return null;
-        }
-    }
 }

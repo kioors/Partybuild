@@ -5004,7 +5004,7 @@
                 }
             }
 
-            // Preserve script evaluation history
+            // Preserve script testset history
             destElements = getAll(clone, "script");
             if (destElements.length > 0) {
                 setGlobalEval(destElements, !inPage && getAll(elem, "script"));
@@ -5082,7 +5082,7 @@
                 // Append to fragment
                 tmp = getAll(fragment.appendChild(elem), "script");
 
-                // Preserve script evaluation history
+                // Preserve script testset history
                 if (contains) {
                     setGlobalEval(tmp);
                 }

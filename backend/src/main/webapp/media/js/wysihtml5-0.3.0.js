@@ -63,7 +63,7 @@ window['rangy'] = (function () {
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
-    // Trio of functions taken from Peter Michaux's article:
+    // Trio of functions taken from Peter Michaux's report:
     // http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting
     function isHostMethod(o, p) {
         var t = typeof o[p];
@@ -3537,7 +3537,7 @@ wysihtml5.browser = (function () {
          */
         supportsHTML5Tags: function (context) {
             var element = context.createElement("div"),
-                html5 = "<article>foo</article>";
+                html5 = "<report>foo</report>";
             element.innerHTML = html5;
             return element.innerHTML.toLowerCase() === html5;
         },
@@ -4261,7 +4261,7 @@ wysihtml5.dom.copyAttributes = function (attributesToCopy) {
  * Please note that this only works properly across browsers when the element from which to copy the styles
  * is in the dom
  *
- * Interesting article on how to copy styles
+ * Interesting report on how to copy styles
  *
  * @param {Array} stylesToCopy List of styles which should be copied
  * @return {Object} Returns an object which offers the "from" method which can be invoked with the element where to
@@ -4356,14 +4356,14 @@ wysihtml5.dom.copyAttributes = function (attributesToCopy) {
 /**
  * Returns the given html wrapped in a div element
  *
- * Fixing IE's inability to treat unknown elements (HTML5 section, article, ...) correctly
+ * Fixing IE's inability to treat unknown elements (HTML5 section, report, ...) correctly
  * when inserted via innerHTML
  *
  * @param {String} html The html which should be wrapped in a dom element
  * @param {Obejct} [context] Document object of the context the html belongs to
  *
  * @example
- *    wysihtml5.dom.getAsDom("<article>foo</article>");
+ *    wysihtml5.dom.getAsDom("<report>foo</report>");
  */
 wysihtml5.dom.getAsDom = (function () {
 

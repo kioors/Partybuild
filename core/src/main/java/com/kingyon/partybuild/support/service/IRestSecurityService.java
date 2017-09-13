@@ -1,8 +1,6 @@
 package com.kingyon.partybuild.support.service;
 
 
-import com.kingyon.partybuild.model.MemberModel;
-
 /**
  * 用户接口.
  * <p/>
@@ -35,13 +33,6 @@ public interface IRestSecurityService {
      */
     void logout(Long id);
 
-    /**
-     * <p>根据客户端会话token，返回当前已登录的用户账号。如果未登录或则返回null</p>
-     *
-     * @param token 客户端会话token
-     * @return 已登录的用户账号
-     */
-    MemberModel getUserByToken(String token);
 
     /**
      * 返回当前已登录的用户账号id，如果未登录或则返回null
@@ -51,11 +42,4 @@ public interface IRestSecurityService {
      */
     Long getUserIdByToken(String token);
 
-    /**
-     * 更加微信openid获取用户
-     *
-     * @param openId
-     * @return
-     */
-    MemberModel getUserByOpenId(String openId);
 }

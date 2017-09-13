@@ -2,21 +2,18 @@ package com.kingyon.web.controller;
 
 import com.kingyon.api.response.ResponseStatus;
 import com.kingyon.api.response.RestResponse;
+import com.kingyon.common.model.AccountModel;
 import com.kingyon.partybuild.domain.DemoBean;
 import com.kingyon.partybuild.service.IDemoService;
 import com.kingyon.web.response.DemoResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +34,9 @@ public class DemoController extends AbstractRestController {
         return new RestResponse<List<DemoResponse>>(ResponseStatus.OK, demoResponseList, "查询成功");
     }
 
+    public AccountModel getCurrentUser() {
+        return null;
+    }
 
 }
 

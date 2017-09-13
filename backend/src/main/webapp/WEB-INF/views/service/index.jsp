@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <title>页面标题1
-        <small>---小标题</small>
+        <small>----小标题</small>
     </title>
 </head>
 <body>

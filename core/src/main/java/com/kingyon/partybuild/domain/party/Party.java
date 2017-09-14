@@ -21,7 +21,7 @@ public class Party extends AuditedDomain {
     /**
      *
      */
-    public String name;
+    private String name;
 
     public String getName() {
         return name;

@@ -1,9 +1,12 @@
 package com.kingyon.partybuild.service.notice.impl;
 
+import com.kingyon.common.repositories.CacheRepository;
+import com.kingyon.common.services.impl.BaseService;
 import com.kingyon.partybuild.common.NullParamException;
 import com.kingyon.partybuild.domain.notice.Notice;
 import com.kingyon.partybuild.domain.notice.NoticeState;
 import com.kingyon.partybuild.dto.NoticeDto;
+import com.kingyon.partybuild.query.NoticeQuery;
 import com.kingyon.partybuild.repositories.NoticeRepository;
 import com.kingyon.partybuild.service.notice.INoticeService;
 import org.apache.commons.lang.StringUtils;
@@ -12,13 +15,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service(value = "noticeService")
 @Transactional(readOnly = true)
-public class INoticeServiceImpl implements INoticeService {
+public class INoticeServiceImpl extends BaseService<Notice, Long> implements INoticeService {
 
     @Autowired
     private NoticeRepository noticeRepository;
+
+    @Override
+    protected CacheRepository<Notice, Long> getRepository() {
+        return noticeRepository;
+    }
 
     @Override
     @Transactional
@@ -81,4 +90,18 @@ public class INoticeServiceImpl implements INoticeService {
         notice.setState(NoticeState.notRelease.getState()); //  新增数据默认状态为待发布
         noticeRepository.save(notice);
     }
+
+    @Override
+    public List<NoticeDto> getNoticeList(String title, int state, int page, int size) {
+        NoticeQuery query = new NoticeQuery();
+        Notice notice = new Notice();
+        notice.setTitle("aaa");
+        //noticeRepository.find
+        // noticeRepository.findAll(notice, new Sort(Sort.Direction.ASC,"id"));
+
+        // findAllByQuery(query, page, size, new Sort(Sort.Direction.DESC, "id")); // 动态封装查询条件
+        return null;
+    }
+
+
 }

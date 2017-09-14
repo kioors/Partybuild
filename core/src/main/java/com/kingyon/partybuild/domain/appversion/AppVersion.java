@@ -22,24 +22,24 @@ public class AppVersion extends AuditedDomain {
     /**
      *
      */
-    public String url;
+    private String url;
 
     /**
      *
      */
     @Column(name = "version_code")
-    public String versionCode;
+    private String versionCode;
 
     /**
      *
      */
     @Column(name = "version_number")
-    public String versionNumber;
+    private String versionNumber;
 
     /**
      *
      */
-    public String content;
+    private String content;
 
 
     public String getUrl() {

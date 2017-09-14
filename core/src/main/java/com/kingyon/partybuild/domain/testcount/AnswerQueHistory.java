@@ -22,25 +22,25 @@ public class AnswerQueHistory extends AuditedDomain {
     /**
      *
      */
-    public String answer;
+    private String answer;
 
     /**
      * 1单选，2多选
      */
     @Column(name = "answer_type")
-    public QuestionType answerType;
+    private QuestionType answerType;
 
     /**
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public Question question;
+    private Question question;
 
     /**
      * 0错误，1正确
      */
     @Column(name = "is_right")
-    public Boolean isRight;
+    private Boolean isRight;
 
     public String getAnswer() {
         return answer;

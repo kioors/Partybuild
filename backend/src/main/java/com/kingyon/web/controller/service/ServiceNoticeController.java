@@ -2,16 +2,26 @@ package com.kingyon.web.controller.service;
 
 import com.kingyon.api.response.ResponseStatus;
 import com.kingyon.api.response.RestResponse;
+import com.kingyon.common.support.data.Pager;
 import com.kingyon.partybuild.common.NullParamException;
+import com.kingyon.partybuild.domain.notice.Notice;
+import com.kingyon.partybuild.dto.ApiNoticeDto;
 import com.kingyon.partybuild.dto.NoticeDto;
+import com.kingyon.partybuild.query.NoticeQuery;
 import com.kingyon.partybuild.service.notice.INoticeService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/service")
@@ -23,6 +33,20 @@ public class ServiceNoticeController {
     @RequestMapping("/notice")
     public String toNoticeManage() {
         return "service/notice";
+    }
+
+    @ApiOperation(value = "查询公告列表")
+    @ResponseBody
+    @RequestMapping(value = "getNoticeList")
+    public RestResponse<List<NoticeDto>> getNoticeList(@RequestParam @ApiParam(value = "搜索标题") String title, @RequestParam @ApiParam(value = "状态") int state, @RequestParam @ApiParam(value = "状态") int page, @RequestParam @ApiParam(value = "状态") int size) {
+        List<NoticeDto> datas = noticeService.getNoticeList(title, state, page, size);
+        NoticeQuery query = new NoticeQuery(title, state, false);
+        Page<Notice> noticePage = noticeService.findAllByQuery(query, page, size, new Sort(Sort.Direction.DESC, "id"));
+        Pager<ApiNoticeDto> pager = new Pager<ApiNoticeDto>(noticePage, notice -> new ApiNoticeDto(notice));
+        if (CollectionUtils.isEmpty(datas)) {
+            return new RestResponse<List<NoticeDto>>(ResponseStatus.OK, new ArrayList<NoticeDto>(), "没有相关公告!");
+        }
+        return new RestResponse<List<NoticeDto>>(ResponseStatus.OK, datas, null);
     }
 
     @ApiOperation(value = "添加公告")

@@ -21,19 +21,19 @@ public class ConnetQueOpt extends AuditedDomain {
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public Question question;
+    private Question question;
 
     /**
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public Option option;
+    private Option option;
 
     /**
      * 选项排序编号
      */
     @Column(name = "option_num")
-    public Integer optionNum;
+    private Integer optionNum;
 
     public Question getQuestion() {
         return question;

@@ -21,29 +21,29 @@ public class QuestionsSets extends AuditedDomain {
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      * 1民主测评，2理论考试，3问卷调查，4知识闯关
      */
-    public PaperType type;
+    private PaperType type;
 
     /**
      * 简介
      */
-    public String content;
+    private String content;
 
     /**
      * 满分
      */
     @Column(name = "total_point")
-    public Double totalPoint;
+    private Double totalPoint;
 
     /**
      *
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "questionsSets")
-    public List<Question> quelist;
+    private List<Question> quelist;
 
     public String getTitle() {
         return title;

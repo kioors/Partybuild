@@ -25,13 +25,13 @@ public class KnowledgeBreak extends AuditedDomain {
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      * 试卷
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public QuestionsSets testPaper;
+    private QuestionsSets testPaper;
 
     public String getTitle() {
         return title;

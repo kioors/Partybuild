@@ -26,13 +26,13 @@ public class VoteCount extends AuditedDomain {
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public Vote vote;
+    private Vote vote;
 
     /**
      * 被投票人
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public User answer;
+    private User answer;
 
     public Vote getVote() {
         return vote;

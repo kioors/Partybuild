@@ -23,19 +23,19 @@ public class UserOperationCount extends AuditedDomain {
      * 操作的资源类型：1文章，2附件，3视频
      */
     @Column(name = "source_type")
-    public SourceType sourceType;
+    private SourceType sourceType;
 
     /**
      * 弱关联，根据type关联对应的表id
      */
     @Column(name = "source_id")
-    public Long sourceId;
+    private Long sourceId;
 
     /**
      * 操作类型：1收藏，2浏览，3点赞
      */
     @Column(name = "num_type")
-    public OperationType numType;
+    private OperationType numType;
 
     public SourceType getSourceType() {
         return sourceType;

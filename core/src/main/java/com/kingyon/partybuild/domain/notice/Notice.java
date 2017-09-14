@@ -22,22 +22,22 @@ public class Notice extends AuditedDomain {
     /**
      * 公告标题
      */
-    public String title;
+    private String title;
 
     /**
      * 公告内容
      */
-    public String detail;
+    private String detail;
 
     /**
      * 发布时间
      */
-    public Date date;
+    private Date date;
 
     /**
      * 公告状态
      */
-    public Integer state;
+    private Integer state;
 
     public String getTitle() {
         return title;

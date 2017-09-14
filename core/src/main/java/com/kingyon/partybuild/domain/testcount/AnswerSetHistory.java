@@ -22,13 +22,13 @@ public class AnswerSetHistory extends AuditedDomain {
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public QuestionsSets questionsSets;
+    private QuestionsSets questionsSets;
 
     /**
      * 得分
      */
     @Column(name = "result_point")
-    public Boolean resultPoint;
+    private Boolean resultPoint;
 
     public QuestionsSets getQuestionsSets() {
         return questionsSets;

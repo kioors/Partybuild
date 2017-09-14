@@ -17,32 +17,32 @@ public class Vote extends AuditedDomain {
     /**
      * Default constructor
      */
-    public Vote() {
+    private Vote() {
     }
 
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      *
      */
     @Column(name = "start_time")
-    public Date startTime;
+    private Date startTime;
 
     /**
      *
      */
     @Column(name = "end_time")
-    public Date endTime;
+    private Date endTime;
 
     /**
      * 投票对象
      */
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "K_VOTE_USER", joinColumns = {@JoinColumn(name = "vote_id")}, inverseJoinColumns = {@JoinColumn(name = "user_id")})
-    public List<User> votelist;
+    private List<User> votelist;
 
     public String getTitle() {
         return title;

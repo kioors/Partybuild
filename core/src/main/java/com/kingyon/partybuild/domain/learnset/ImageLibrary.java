@@ -23,7 +23,7 @@ public class ImageLibrary extends AuditedDomain {
     /**
      *
      */
-    public String url;
+    private String url;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Article article;
@@ -34,7 +34,7 @@ public class ImageLibrary extends AuditedDomain {
     /**
      * 1文章图，2首页轮播图
      */
-    public ImageType type;
+    private ImageType type;
 
     public String getUrl() {
         return url;

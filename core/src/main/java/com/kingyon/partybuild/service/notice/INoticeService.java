@@ -1,9 +1,13 @@
 package com.kingyon.partybuild.service.notice;
 
+import com.kingyon.common.services.IBaseService;
 import com.kingyon.partybuild.common.NullParamException;
+import com.kingyon.partybuild.domain.notice.Notice;
 import com.kingyon.partybuild.dto.NoticeDto;
 
-public interface INoticeService {
+import java.util.List;
+
+public interface INoticeService extends IBaseService<Notice, Long> {
 
     /**
      * 添加公告，返回公告ID
@@ -40,4 +44,14 @@ public interface INoticeService {
      */
     public NoticeDto getNotice(Long id) throws NullPointerException;
 
+    /**
+     * 查询公告列表
+     *
+     * @param title
+     * @param state
+     * @param page
+     * @param size
+     * @return
+     */
+    List<NoticeDto> getNoticeList(String title, int state, int page, int size);
 }

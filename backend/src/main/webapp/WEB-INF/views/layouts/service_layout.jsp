@@ -43,23 +43,12 @@
             <li class="active ">
                 <a href="javascript:;">
                     <i class="icon-table"></i>
-                    <span class="title">目录一</span>
+                    <span class="title">公告管理</span>
                     <span class="selected"></span>
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="active">
-                        <a href="form_layout.html">
-                            页面一</a>
-                    </li>
-                    <li>
-                        <a href="form_samples.html">
-                            页面二</a>
-                    </li>
-                    <li>
-                        <a href="form_component.html">
-                            页面三</a>
-                    </li>
+                    <li class="active"><a href="notice">公告管理</a></li>
                 </ul>
             </li>
             <li class="">
@@ -89,7 +78,7 @@
             <li class="last ">
                 <a href="charts.html">
                     <i class="icon-bar-chart"></i>
-                    <span class="title">尾部页面</span>
+                    <span class="title">尾部页faefafe面</span>
                 </a>
             </li>
         </ul>

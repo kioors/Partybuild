@@ -2,7 +2,7 @@ package com.kingyon.partybuild.domain.notice;
 
 public enum NoticeState {
 
-    notRelease(-1, "待发布"), release(0, "已发布");
+    notRelease(1, "待发布"), release(2, "已发布");
 
     private int state;
     private String value;

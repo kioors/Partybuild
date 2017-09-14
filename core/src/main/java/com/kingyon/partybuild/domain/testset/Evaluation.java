@@ -17,37 +17,37 @@ public class Evaluation extends AuditedDomain {
     /**
      * Default constructor
      */
-    public Evaluation() {
+    private Evaluation() {
     }
 
     /**
      * 测评对象
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public User forAccount;
+    private User forAccount;
 
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      *
      */
     @Column(name = "start_time")
-    public Date startTime;
+    private Date startTime;
 
     /**
      *
      */
     @Column(name = "end_time")
-    public Date endTime;
+    private Date endTime;
 
     /**
      * 试卷
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public QuestionsSets testPaper;
+    private QuestionsSets testPaper;
 
     public User getForAccount() {
         return forAccount;

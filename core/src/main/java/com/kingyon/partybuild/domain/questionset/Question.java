@@ -20,28 +20,28 @@ public class Question extends AuditedDomain {
     /**
      *
      */
-    public String question;
+    private String question;
 
     /**
      *
      */
-    public String answer;
+    private String answer;
 
     /**
      * 1单选，2多选
      */
-    public QuestionType type;
+    private QuestionType type;
 
     /**
      * 问题所属板块：1知识闯关，2民主测评，3理论考试，4问卷调查，
      */
     @Column(name = "paper_type")
-    public PaperType paperType;
+    private PaperType paperType;
 
     /**
      *
      */
-    public Double point;
+    private Double point;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private QuestionsSets questionsSets;

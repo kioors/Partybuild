@@ -18,44 +18,44 @@ public class User extends AuditedDomain implements Login {
     /**
      *
      */
-    public String name;
+    private String name;
 
     /**
      *
      */
-    public String phone;
+    private String phone;
 
     /**
      * 头像
      */
-    public String head;
+    private String head;
 
     /**
      * 身份
      */
-    public IdentityType identity;
+    private IdentityType identity;
 
     /**
      * 所属
      */
-    public Party affilication;
+    private Party affilication;
 
     /**
      * 入党时间
      */
     @Column(name = "party_date")
-    public Date partyDate;
+    private Date partyDate;
 
     /**
      *
      */
-    public String password;
+    private String password;
 
     /**
      * 绑定账号和手机的机器码
      */
     @Column(name = "device_id")
-    public String deviceId;
+    private String deviceId;
 
     /**
      * 登录名

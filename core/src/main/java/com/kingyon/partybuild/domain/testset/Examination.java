@@ -16,25 +16,25 @@ public class Examination extends AuditedDomain {
     /**
      * Default constructor
      */
-    public Examination() {
+    private Examination() {
     }
 
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      *
      */
     @Column(name = "start_time")
-    public Date startTime;
+    private Date startTime;
 
     /**
      *
      */
     @Column(name = "end_time")
-    public Date endTime;
+    private Date endTime;
 
     /**
      * 试卷

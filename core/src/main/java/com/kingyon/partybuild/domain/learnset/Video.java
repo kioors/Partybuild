@@ -22,59 +22,59 @@ public class Video extends AuditedDomain {
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      * 收藏量
      */
-    public Integer collection = 0;
+    private Integer collection = 0;
 
     /**
      * 浏览量
      */
     @Column(name = "page_view")
-    public Integer pageView = 0;
+    private Integer pageView = 0;
 
     /**
      * 点赞量
      */
     @Column(name = "thumb_up")
-    public Integer thumbUp = 0;
+    private Integer thumbUp = 0;
 
     /**
      * 播放量
      */
     @Column(name = "play_number")
-    public Integer playNumber = 0;
+    private Integer playNumber = 0;
 
     /**
      * 简介
      */
     @Column(name = "brief_content")
-    public String briefContent;
+    private String briefContent;
 
     /**
      * 是否为专题：0不是，1是
      */
     @Column(name = "is_special")
-    public Boolean isSpecial;
+    private Boolean isSpecial;
 
     /**
      *
      */
     @Column(name = "parent_id")
-    public Long parentId;
+    private Long parentId;
 
     /**
      * 封面图
      */
     @Column(name = "head_image")
-    public String headImage;
+    private String headImage;
 
     /**
      *
      */
-    public String url;
+    private String url;
 
     public String getTitle() {
         return title;

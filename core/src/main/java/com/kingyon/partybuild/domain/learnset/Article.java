@@ -22,69 +22,69 @@ public class Article extends AuditedDomain {
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      * 收藏量
      */
-    public Integer collection = 0;
+    private Integer collection = 0;
 
     /**
      * 浏览量
      */
     @Column(name = "page_view")
-    public Integer pageView = 0;
+    private Integer pageView = 0;
 
     /**
      * 点赞量
      */
     @Column(name = "thumb_up")
-    public Integer thumbUp = 0;
+    private Integer thumbUp = 0;
 
     /**
      *
      */
-    public String content;
+    private String content;
 
     /**
      * 0审核中，1已通过，2未通过
      */
-    public StatusType status;
+    private StatusType status;
 
     /**
      * 1通知公告，2党团计划，3党务公开
      */
-    public ArticleType type;
+    private ArticleType type;
 
     /**
      * 文章图片
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "article", cascade = CascadeType.ALL)
-    public List<ImageLibrary> imglist;
+    private List<ImageLibrary> imglist;
 
     /**
      * 拒绝原因
      */
     @Column(name = "refuse_reason")
-    public String refuseReason;
+    private String refuseReason;
 
     /**
      * 是否为专题：0不是，1是
      */
     @Column(name = "is_special")
-    public Boolean isSpecial;
+    private Boolean isSpecial;
 
     /**
      *
      */
     @Column(name = "parent_id")
-    public Long parentId;
+    private Long parentId;
 
     /**
      * 封面图
      */
     @Column(name = "head_image")
-    public String headImage;
+    private String headImage;
 
     public String getTitle() {
         return title;

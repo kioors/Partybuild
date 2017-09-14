@@ -24,22 +24,22 @@ public class Report extends AuditedDomain {
      *
      */
     @Column(name = "to_account")
-    public User toAccount;
+    private User toAccount;
 
     /**
      *
      */
-    public String content;
+    private String content;
 
     /**
      *
      */
-    public String reply;
+    private String reply;
 
     /**
      * 1待回复，2已回复
      */
-    public String status;
+    private String status;
 
     public User getToAccount() {
         return toAccount;

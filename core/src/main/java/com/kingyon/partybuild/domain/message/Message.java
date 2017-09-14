@@ -21,36 +21,36 @@ public class Message extends AuditedDomain {
     /**
      * 如果是文本留言就是内容，如果是图片留言是图片的key
      */
-    public String content;
+    private String content;
 
     /**
      *
      */
     @Column(name = "image_height")
-    public Double imageHeight;
+    private Double imageHeight;
 
     /**
      *
      */
     @Column(name = "image_width")
-    public Double imageWidth;
+    private Double imageWidth;
 
     /**
      * 1图片消息，2文本消息
      */
-    public MessageType type;
+    private MessageType type;
 
     /**
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    public User toAccount;
+    private User toAccount;
 
     /**
      * 是否已读：0未读，1已读
      */
     @Column(name = "is_read")
-    public Boolean isRead;
+    private Boolean isRead;
 
     public String getContent() {
         return content;

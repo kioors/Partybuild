@@ -22,70 +22,70 @@ public class Education extends AuditedDomain {
     /**
      *
      */
-    public String title;
+    private String title;
 
     /**
      * 收藏量
      */
-    public Integer collection = 0;
+    private Integer collection = 0;
 
     /**
      * 浏览量
      */
     @Column(name = "page_view")
-    public Integer pageView = 0;
+    private Integer pageView = 0;
 
     /**
      * 点赞量
      */
     @Column(name = "thumb_up")
-    public Integer thumbUp = 0;
+    private Integer thumbUp = 0;
 
     /**
      * 简介
      */
     @Column(name = "brief_content")
-    public String briefContent;
+    private String briefContent;
 
     /**
      *
      */
-    public String url;
+    private String url;
 
     /**
      * 是否为专题：0不是，1是
      */
     @Column(name = "is_special")
-    public Boolean isSpecial;
+    private Boolean isSpecial;
 
     /**
      *
      */
     @Column(name = "parent_id")
-    public Long parentId;
+    private Long parentId;
 
     /**
      * 文章推荐图
      */
     @Column(name = "head_image")
-    public String headImage;
+    private String headImage;
 
     /**
      * 1-txt，2-word，3-pdf
      */
     @Column(name = "document_type")
-    public FileType documentType;
+    private FileType documentType;
 
     /**
      * 作者
      */
-    public String author;
+    private String author;
 
     /**
      * 出版社
      */
     @Column(name = "press_name")
-    public String pressName;
+    private String pressName;
 
     public String getTitle() {
         return title;

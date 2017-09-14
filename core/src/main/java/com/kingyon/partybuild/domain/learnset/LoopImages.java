@@ -23,19 +23,19 @@ public class LoopImages extends AuditedDomain {
      *
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "loopImages", cascade = CascadeType.ALL)
-    public List<ImageLibrary> imagelist;
+    private List<ImageLibrary> imagelist;
 
     /**
      * 1-文章，2-文档，3-闯关，4-考试，5-专题
      */
     @Column(name = "source_type")
-    public ImageUrlType sourceType;
+    private ImageUrlType sourceType;
 
     /**
      * 文章，文档或者专题对应具体的id
      */
     @Column(name = "source_id")
-    public Long sourceId;
+    private Long sourceId;
 
     public List<ImageLibrary> getImagelist() {
         return imagelist;

@@ -21,7 +21,7 @@ public class Option extends AuditedDomain {
     /**
      * 选项描述
      */
-    public String content;
+    private String content;
 
     public String getContent() {
         return content;

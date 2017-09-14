@@ -7,11 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 /**
- * Created by Machenike on 2017/9/14.
+ * 描述
+ * <p/>
+ *
+ * @author <a href="jorge@kingyon.com">Jorge</a>
+ * 2017/9/14
+ * @since 0.1.0
  */
-public interface LikesRepository extends CacheRepository<UserOperationCount, Long> {
+public interface ColllectReponsitory extends CacheRepository<UserOperationCount,Long> {
 
     @Query(value = "select u from UserOperationCount as u where deleted = false and userId = ?1 and num_type=?2 limit ?3,?4")
-    public List<UserOperationCount> getUserOperationCountByUid(Long Source_id, int type, int page, int size);
+    public List<UserOperationCount> getUserOperationCountByUid(Long userId, int type, int page, int size);
 
 }

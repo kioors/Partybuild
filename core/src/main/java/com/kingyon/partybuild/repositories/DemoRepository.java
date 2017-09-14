@@ -13,6 +13,5 @@ public interface DemoRepository extends CacheRepository<DemoBean, Long> {
     @Query(value = "select d from DemoBean d where d.deleted = false and d.name = ?1")
     List<DemoBean> findDemoBeanByName(String name);
 
-   @Query(value = "select d from DemoBean d")
-    List<DemoBean> findAll();
+
 }

@@ -12,6 +12,7 @@ public interface IDemoService extends IBaseService<DemoBean, Long> {
 
     List<DemoBean> findAll();
 
+
     Page<DemoBean> pageDemo(Integer page, Integer size);
 
     DemoBean findOne(Long id);

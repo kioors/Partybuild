@@ -1,5 +1,8 @@
 package com.kingyon.web.response;
 
+import com.kingyon.partybuild.dto.LearnsetDto;
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,25 +13,45 @@ import java.util.List;
  * 2017/9/14
  * @since 0.1.0
  */
-public class CollectResponse<T>{
+public class CollectResponse {
 
-    private Integer type;
+    private  List<LearnsetDto> learnsetDtoList;
+    //当前页数
+    private  Integer Size;
+    //总条数
+    private  Integer totalElements;
+    //总页数
+    private  Integer totalPagesl;
 
-    private List<T> returstList;
-
-    public Integer getType() {
-        return type;
+    public List<LearnsetDto> getLearnsetDtoList() {
+        return learnsetDtoList;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setLearnsetDtoList(List<LearnsetDto> learnsetDtoList) {
+        this.learnsetDtoList = learnsetDtoList;
     }
 
-    public List getReturstList() {
-        return returstList;
+    public Integer getSize() {
+        return Size;
     }
 
-    public void setReturstList(List returstList) {
-        this.returstList = returstList;
+    public void setSize(Integer size) {
+        Size = size;
+    }
+
+    public Integer getTotalElements() {
+        return totalElements;
+    }
+
+    public void setTotalElements(Integer totalElements) {
+        this.totalElements = totalElements;
+    }
+
+    public Integer getTotalPagesl() {
+        return totalPagesl;
+    }
+
+    public void setTotalPagesl(Integer totalPagesl) {
+        this.totalPagesl = totalPagesl;
     }
 }

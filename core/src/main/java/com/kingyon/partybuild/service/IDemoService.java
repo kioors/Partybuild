@@ -23,4 +23,5 @@ public interface IDemoService {
     void delete(DemoBean demoBean);
 
     List<DemoBean> findDemoBeanByName(String name);
+
 }

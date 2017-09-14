@@ -36,6 +36,12 @@ public class DemoController extends AbstractRestController {
         List<DemoResponse> demoResponseList = demoBeanList.stream().map(source -> new DemoResponse(source)).collect(Collectors.toList());
         return new RestResponse<List<DemoResponse>>(ResponseStatus.OK, demoResponseList, "查询成功");
     }
+
+
+    @Override
+    protected AccountModel getCurrentUser() {
+        return null;
+    }
 }
 
 

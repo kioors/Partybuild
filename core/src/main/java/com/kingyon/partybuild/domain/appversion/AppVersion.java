@@ -41,6 +41,7 @@ public class AppVersion extends AuditedDomain {
      */
     public String content;
 
+
     public String getUrl() {
         return url;
     }

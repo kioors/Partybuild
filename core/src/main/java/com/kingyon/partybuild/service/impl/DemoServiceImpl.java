@@ -1,5 +1,7 @@
 package com.kingyon.partybuild.service.impl;
 
+import com.kingyon.common.repositories.CacheRepository;
+import com.kingyon.common.services.impl.BaseService;
 import com.kingyon.partybuild.domain.DemoBean;
 import com.kingyon.partybuild.repositories.DemoRepository;
 import com.kingyon.partybuild.service.IDemoService;
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service(value = "demoService")
-public class DemoServiceImpl implements IDemoService {
+public class DemoServiceImpl extends BaseService<DemoBean, Long> implements IDemoService {
 
     @Autowired
     private DemoRepository demoRepository;
@@ -36,13 +38,18 @@ public class DemoServiceImpl implements IDemoService {
     }
 
     @Override
-    public void save(DemoBean demoBean) {
-        demoRepository.save(demoBean);
+    public DemoBean save(DemoBean demoBean) {
+        return demoRepository.save(demoBean);
     }
 
     @Override
     public void delete(DemoBean demoBean) {
         demoRepository.delete(demoBean);
+    }
+
+    @Override
+    protected CacheRepository<DemoBean, Long> getRepository() {
+        return demoRepository;
     }
 
     @Override

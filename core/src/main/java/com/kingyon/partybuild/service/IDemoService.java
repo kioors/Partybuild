@@ -1,16 +1,14 @@
 package com.kingyon.partybuild.service;
 
 
-import com.kingyon.common.domain.authorization.Role;
+import com.kingyon.common.services.IBaseService;
 import com.kingyon.partybuild.domain.DemoBean;
-import com.kingyon.partybuild.domain.user.User;
 import org.springframework.data.domain.Page;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
 
-public interface IDemoService {
+public interface IDemoService extends IBaseService<DemoBean, Long> {
 
     List<DemoBean> findAll();
 
@@ -18,7 +16,7 @@ public interface IDemoService {
 
     DemoBean findOne(Long id);
 
-    void save(DemoBean demoBean);
+    DemoBean save(DemoBean demoBean);
 
     void delete(DemoBean demoBean);
 

@@ -15,6 +15,14 @@ public class LearnsetDtoMethod {
 
     public List<LearnsetDto> getLikeList(List<Article> articles, List<Education> educations, List<Video> videos) {
         List<LearnsetDto> learnsetDtos = new ArrayList<>();
+        learnsetDtos.addAll(getArticle(articles));
+        learnsetDtos.addAll(getEducation(educations));
+        learnsetDtos.addAll(getVideo(videos));
+        return learnsetDtos;
+    }
+
+    private List<LearnsetDto> getArticle(List<Article> articles) {
+        List<LearnsetDto> learnsetDtos = new ArrayList<>();
         for (Article article : articles) {
             LearnsetDto learnsetDto = new LearnsetDto();
             learnsetDto.setCollection(article.getCollection());
@@ -26,6 +34,11 @@ public class LearnsetDtoMethod {
 
             learnsetDtos.add(learnsetDto);
         }
+        return learnsetDtos;
+    }
+
+    private List<LearnsetDto> getEducation(List<Education> educations) {
+        List<LearnsetDto> learnsetDtos = new ArrayList<>();
         for (Education education : educations) {
             LearnsetDto learnsetDto = new LearnsetDto();
             learnsetDto.setCollection(education.getCollection());
@@ -37,6 +50,13 @@ public class LearnsetDtoMethod {
 
             learnsetDtos.add(learnsetDto);
         }
+        return learnsetDtos;
+    }
+
+    ;
+
+    private List<LearnsetDto> getVideo(List<Video> videos) {
+        List<LearnsetDto> learnsetDtos = new ArrayList<>();
         for (Video video : videos) {
             LearnsetDto learnsetDto = new LearnsetDto();
 
@@ -49,8 +69,6 @@ public class LearnsetDtoMethod {
 
             learnsetDtos.add(learnsetDto);
         }
-
-
         return learnsetDtos;
     }
 }

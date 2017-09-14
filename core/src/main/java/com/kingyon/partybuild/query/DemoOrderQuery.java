@@ -19,7 +19,7 @@
 // *         2017/8/10 0010
 // * @since 0.1.0
 // */
-//public class DemoOrderQuery implements Specification<Order> {
+// public class DemoOrderQuery implements Specification<Order> {
 //
 //    //用户
 //    private Long memberId;

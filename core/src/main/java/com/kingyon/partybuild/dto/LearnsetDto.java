@@ -22,7 +22,7 @@ public class LearnsetDto {
     /**
      * 账号id
      */
-    private Integer objectId;
+    private Long objectId;
     /**
      * 浏览量
      */
@@ -56,7 +56,7 @@ public class LearnsetDto {
         return image;
     }
 
-    public Integer getObjectId() {
+    public Long getObjectId() {
         return objectId;
     }
 
@@ -84,7 +84,7 @@ public class LearnsetDto {
         this.image = image;
     }
 
-    public void setObjectId(Integer objectId) {
+    public void setObjectId(Long objectId) {
         this.objectId = objectId;
     }
 

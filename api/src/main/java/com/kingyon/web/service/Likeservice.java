@@ -3,7 +3,7 @@ package com.kingyon.web.service;
 import com.kingyon.partybuild.domain.learnset.Article;
 import com.kingyon.partybuild.domain.learnset.Education;
 import com.kingyon.partybuild.domain.learnset.Video;
-import com.kingyon.partybuild.dto.UserDto;
+import com.kingyon.partybuild.dto.LearnsetDto;
 
 import java.util.List;
 
@@ -18,5 +18,6 @@ public interface Likeservice {
 
     List<Video> getLikeVideo(String userName);
 
-    List<UserDto> getLikeList(List<Article> articles,List<Education> educations,List<Video> videos);
+    List<LearnsetDto> getLearnsetDto(List<Article> articles, List<Education> educations, List<Video> videos);
+
 }

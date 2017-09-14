@@ -1,15 +1,20 @@
 package com.kingyon.partybuild.dto;
 
-import com.kingyon.common.domain.AuditedDomain;
+import java.util.Date;
 
 /**
  * Created by Machenike on 2017/9/14.
  */
-public class UserDto extends AuditedDomain {
+public class LearnsetDto {
     /**
      * 收藏量
      */
     private Integer collection;
+
+    /**
+     * 时间
+     */
+    private Date date;
     /**
      * 图片链接
      */
@@ -35,10 +40,17 @@ public class UserDto extends AuditedDomain {
      */
     private Integer type;
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public Integer getCollection() {
         return collection;
     }
-
 
     public String getImage() {
         return image;
@@ -91,4 +103,5 @@ public class UserDto extends AuditedDomain {
     public void setType(Integer type) {
         this.type = type;
     }
+
 }

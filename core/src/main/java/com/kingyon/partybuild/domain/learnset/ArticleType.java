@@ -7,6 +7,7 @@ package com.kingyon.partybuild.domain.learnset;
  * @create 2017-09-13 上午9:37
  **/
 public enum ArticleType {
+
     NOTICE(1, "通知公告"),
     PLAN(2, "党团计划"),
     AFFAIRS(3, "党务公开");

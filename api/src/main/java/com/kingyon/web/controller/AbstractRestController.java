@@ -1,6 +1,10 @@
 package com.kingyon.web.controller;
 
 import com.kingyon.common.controller.AbstractController;
+import com.kingyon.partybuild.model.MemberModel;
+import com.kingyon.partybuild.support.service.IRestSecurityService;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * describe：前端接口抽象类
@@ -10,6 +14,36 @@ import com.kingyon.common.controller.AbstractController;
  * @since 0.1.0
  */
 public abstract class AbstractRestController extends AbstractController {
+
+    @Autowired
+    protected IRestSecurityService restSecurityService;
+
+    @Override
+    protected MemberModel getCurrentUser() {
+
+        String token = getToken();
+
+        if (!StringUtils.isEmpty(token)) {
+
+            return restSecurityService.getUserByToken(token);
+        }
+
+        return null;
+    }
+
+
+    protected Long getCurrentUserId() {
+
+        String token = getToken();
+
+        if (!StringUtils.isEmpty(token)) {
+
+            return restSecurityService.getUserIdByToken(token);
+        }
+
+        return null;
+    }
+
 
 //    @Autowired
 //    protected IRestSecurityService restSecurityService;

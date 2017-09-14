@@ -8,15 +8,11 @@ import com.kingyon.web.response.DemoResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,8 +32,6 @@ public class DemoController extends AbstractRestController {
         List<DemoResponse> demoResponseList = demoBeanList.stream().map(source -> new DemoResponse(source)).collect(Collectors.toList());
         return new RestResponse<List<DemoResponse>>(ResponseStatus.OK, demoResponseList, "查询成功");
     }
-
-
 }
 
 

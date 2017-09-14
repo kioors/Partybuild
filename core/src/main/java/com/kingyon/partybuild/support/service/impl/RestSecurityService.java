@@ -1,6 +1,8 @@
 package com.kingyon.partybuild.support.service.impl;
 
 import com.kingyon.common.support.util.StringPool;
+import com.kingyon.partybuild.model.MemberModel;
+import com.kingyon.partybuild.service.IMemberService;
 import com.kingyon.partybuild.support.service.IRestSecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -12,15 +14,17 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * describe: 用户接口
- *
  * @author <a href="sam@kingyon.com">Yang Xiang</a>
- * 2017/8/23 上午 10:27:28
+ *         2017/8/23 上午 10:27:28
  * @since 0.1.0
  */
 @Service
 public class RestSecurityService implements IRestSecurityService {
 
     public static final int OVERDUE_TIME = 7;
+
+    @Autowired
+    private IMemberService memberService;
 
     private static final String ACCOUNT_KEY_PREFIX = "TOKEN ";//access token redis key前缀
 
@@ -40,7 +44,6 @@ public class RestSecurityService implements IRestSecurityService {
 
         return ACCOUNT_KEY_PREFIX + id + StringPool.SLASH + StringPool.STAR;
     }
-
     @Autowired
     private RedisTemplate<String, Long> redisTemplate;
 
@@ -92,6 +95,20 @@ public class RestSecurityService implements IRestSecurityService {
     }
 
     @Override
+    public MemberModel getUserByToken(String token) {
+
+        Long userId = redisTemplate.boundValueOps(token).get();
+
+        if (userId != null) {
+
+            setTimeout(token);
+
+            return memberService.getMemberById(userId);
+        }
+        return null;
+    }
+
+    @Override
     public Long getUserIdByToken(String token) {
 
         Long userId = redisTemplate.boundValueOps(token).get();
@@ -104,11 +121,6 @@ public class RestSecurityService implements IRestSecurityService {
     private void setTimeout(String token) {
 
         redisTemplate.boundValueOps(token).expire(OVERDUE_TIME, TimeUnit.DAYS);//一周过期
-    }
-
-    private void setTimeoutToOpenId(String openId) {
-
-        redisTemplate.boundValueOps(openId).expire(OVERDUE_TIME, TimeUnit.DAYS);//一周过期
     }
 
 }

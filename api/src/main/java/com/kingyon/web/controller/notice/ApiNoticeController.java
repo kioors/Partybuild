@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Api(description = "公告API接口")
 @Controller
@@ -32,15 +33,16 @@ public class ApiNoticeController {
     @ApiOperation(value = "APP获取公告列表")
     @ResponseBody
     @RequestMapping(value = "/getAdvertisementMessage")
-    public RestResponse<List<ApiNoticeResponse>> getAdvertisementMessage(@RequestParam @ApiParam(value = "页码") int page, @RequestParam @ApiParam(value = "每页数量") int size) {
-        NoticeQuery query = new NoticeQuery("1", NoticeState.release.getState(), false); // 查询条件
+    public RestResponse<Map<String, Object>> getAdvertisementMessage(@RequestParam @ApiParam(value = "页码") int page, @RequestParam @ApiParam(value = "每页数量") int size) {
+        NoticeQuery query = new NoticeQuery(null, NoticeState.release.getState(), false); // 查询条件
         page = page > 0 ? page - 1 : page;
         Page<Notice> notices = noticeService.findAllByQuery(query, page, size, new Sort(Sort.Direction.DESC, "id"));
         Pager<ApiNoticeResponse> response = new Pager<ApiNoticeResponse>(notices, notice -> new ApiNoticeResponse(notice));
-        for (ApiNoticeResponse rep : response.getContent()) {
-            System.out.print(rep.toString());
-        }
-        return new RestResponse<>(ResponseStatus.OK, response.getContent(), "获取成功");
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("contents", response.getContent());
+        result.put("totalPages", response.getTotalPages());
+        result.put("totalElements", response.getTotalElements());
+        return new RestResponse<Map<String, Object>>(ResponseStatus.OK, result, "获取成功");
     }
 
 }

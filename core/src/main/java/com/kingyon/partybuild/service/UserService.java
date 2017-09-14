@@ -73,4 +73,7 @@ public interface UserService extends UserDetailsService {
     List<User> findUserByRole(Role role);
 
     User findUserByMobile(String mobile);
+
+
+
 }

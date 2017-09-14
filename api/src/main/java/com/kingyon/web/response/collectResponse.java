@@ -3,22 +3,32 @@ package com.kingyon.web.response;
 import java.util.List;
 
 /**
- * 描述 收藏返回类
+ * 描述
  * <p/>
  *
- * @author <a href="Abel@kingyon.com">Abel/a>
+ * @author <a href="Abel@kingyon.com">Abel</a>
  * 2017/9/14
  * @since 0.1.0
  */
-public class collectResponse<T> {
+public class CollectResponse<T>{
 
-    private  String type;
+    private Integer type;
 
-    private List<T> list;
+    private List<T> returstList;
 
-    public collectResponse(String type,List<T> list){
-        this.type=type;
-        this.list=list;
+    public Integer getType() {
+        return type;
     }
 
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public List getReturstList() {
+        return returstList;
+    }
+
+    public void setReturstList(List returstList) {
+        this.returstList = returstList;
+    }
 }

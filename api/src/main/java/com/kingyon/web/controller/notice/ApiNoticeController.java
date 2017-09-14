@@ -42,7 +42,7 @@ public class ApiNoticeController {
         result.put("contents", response.getContent());
         result.put("totalPages", response.getTotalPages());
         result.put("totalElements", response.getTotalElements());
-        return new RestResponse<Map<String, Object>>(ResponseStatus.OK, result, "获取成功");
+        return new RestResponse<Map<String, Object>>(ResponseStatus.OK, result, "请求成功");
     }
 
 }

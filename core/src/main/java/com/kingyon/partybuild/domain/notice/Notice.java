@@ -20,19 +20,24 @@ public class Notice extends AuditedDomain {
     }
 
     /**
-     *
+     * 公告标题
      */
     public String title;
 
     /**
-     *
+     * 公告内容
      */
     public String detail;
 
     /**
-     *
+     * 发布时间
      */
     public Date date;
+
+    /**
+     * 公告状态
+     */
+    public Integer state;
 
     public String getTitle() {
         return title;
@@ -56,5 +61,13 @@ public class Notice extends AuditedDomain {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

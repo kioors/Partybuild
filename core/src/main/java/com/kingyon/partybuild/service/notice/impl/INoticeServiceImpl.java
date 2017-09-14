@@ -3,6 +3,7 @@ package com.kingyon.partybuild.service.notice.impl;
 import com.kingyon.partybuild.common.NullParamException;
 import com.kingyon.partybuild.domain.notice.Notice;
 import com.kingyon.partybuild.domain.notice.NoticeState;
+import com.kingyon.partybuild.dto.NoticeDto;
 import com.kingyon.partybuild.repositories.NoticeRepository;
 import com.kingyon.partybuild.service.notice.INoticeService;
 import org.apache.commons.lang.StringUtils;
@@ -11,8 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service(value = "noticeService")
 @Transactional(readOnly = true)
@@ -38,7 +37,7 @@ public class INoticeServiceImpl implements INoticeService {
             throw new NullParamException();
         }
         Notice notice = noticeRepository.findOne(noticeId);
-        if (notice == null) {
+        if (notice == null || notice.getDeleted()) {
             throw new NullPointerException();
         }
         notice.setTitle(title);
@@ -48,16 +47,19 @@ public class INoticeServiceImpl implements INoticeService {
     }
 
     @Override
-    public Map<String, Object> getNotice(Long noticeId) throws NullPointerException {
+    public NoticeDto getNotice(Long noticeId) throws NullPointerException {
         Notice notice = noticeRepository.findOne(noticeId);
         if (notice == null) {
             throw new NullPointerException();
         }
-        Map<String, Object> result = new HashMap<String, Object>();
-        result.put("date", notice.getDate());
-        result.put("title", notice.getTitle());
-        result.put("detail", notice.getDetail());
-        return result;
+        // 用实体类封装
+        NoticeDto data = new NoticeDto();
+        data.setId(notice.getId());
+        data.setTitle(notice.getTitle());
+        data.setDetail(notice.getDetail());
+        data.setStateName(NoticeState.getStateName(notice.getState()));
+        data.setState(notice.getState());
+        return data;
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.kingyon.web.controller.service;
 import com.kingyon.api.response.ResponseStatus;
 import com.kingyon.api.response.RestResponse;
 import com.kingyon.partybuild.common.NullParamException;
+import com.kingyon.partybuild.dto.NoticeDto;
 import com.kingyon.partybuild.service.notice.INoticeService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -11,8 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/service")
@@ -70,14 +69,14 @@ public class ServiceNoticeController {
     @ApiOperation(value = "根据ID获取公告")
     @ResponseBody
     @RequestMapping(value = "getNotice")
-    public RestResponse<Map<String, Object>> getNotice(@RequestParam @ApiParam(value = "公告ID") long noticeId) {
-        Map<String, Object> result = null;
+    public RestResponse<NoticeDto> getNotice(@RequestParam @ApiParam(value = "公告ID") long noticeId) {
+        NoticeDto result = null;
         try {
             result = noticeService.getNotice(noticeId);
         } catch (NullPointerException e) {
-            return new RestResponse<Map<String, Object>>(ResponseStatus.INTERNAL_SERVER_ERROR, null, "公告不存在!");
+            return new RestResponse<NoticeDto>(ResponseStatus.INTERNAL_SERVER_ERROR, null, "公告不存在!");
         }
-        return new RestResponse<Map<String, Object>>(ResponseStatus.OK, result, "");
+        return new RestResponse<NoticeDto>(ResponseStatus.OK, result, "");
     }
 
 }

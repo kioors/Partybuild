@@ -1,8 +1,7 @@
 package com.kingyon.partybuild.service.notice;
 
 import com.kingyon.partybuild.common.NullParamException;
-
-import java.util.Map;
+import com.kingyon.partybuild.dto.NoticeDto;
 
 public interface INoticeService {
 
@@ -39,6 +38,6 @@ public interface INoticeService {
      * @param id
      * @return
      */
-    public Map<String, Object> getNotice(Long id) throws NullPointerException;
+    public NoticeDto getNotice(Long id) throws NullPointerException;
 
 }

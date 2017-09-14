@@ -38,4 +38,12 @@ public enum NoticeState {
     public void setValue(String value) {
         this.value = value;
     }
+
+    public static String getStateName(int state) {
+        for (NoticeState ns : NoticeState.values()) {
+            if (ns.getState() != state) continue;
+            return ns.getValue();
+        }
+        return "-";
+    }
 }

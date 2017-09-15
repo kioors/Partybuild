@@ -12,6 +12,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
  * Created by Machenike on 2017/9/14.
  */
 @Service
+@Transactional(readOnly = true)
 public class LikeserviceImpl extends BaseService<UserOperationCount, Long> implements Likeservice {
 
     @Autowired
@@ -40,7 +42,7 @@ public class LikeserviceImpl extends BaseService<UserOperationCount, Long> imple
         List<UserOperationCount> userOperationCounts = likesRepository.getUserOperationCountByUid(userId, type, page, size);
 
         if (CollectionUtils.isEmpty(userOperationCounts)) {
-
+            throw new NullPointerException();
         }
 
 
@@ -58,16 +60,19 @@ public class LikeserviceImpl extends BaseService<UserOperationCount, Long> imple
 
 
     @Override
+    @Transactional
     public List<LearnsetDto> getArticles(Long userId) {
         return learnsetDtoMethod.getArticle(likesRepository.getArticles(userId));
     }
 
     @Override
+    @Transactional
     public List<LearnsetDto> getEducations(Long userId) {
         return learnsetDtoMethod.getEducation(likesRepository.getEducations(userId));
     }
 
     @Override
+    @Transactional
     public List<LearnsetDto> getVideos(Long ueserId) {
         return learnsetDtoMethod.getVideo(likesRepository.getVideos(ueserId));
     }

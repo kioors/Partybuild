@@ -18,12 +18,12 @@ public class Question extends AuditedDomain {
     }
 
     /**
-     *
+     * 题目名称
      */
     private String question;
 
     /**
-     *
+     * 正确的选项
      */
     private String answer;
 
@@ -39,10 +39,13 @@ public class Question extends AuditedDomain {
     private PaperType paperType;
 
     /**
-     *
+     * 分值
      */
     private Double point;
 
+    /**
+     * 所属答题试卷
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     private QuestionsSets questionsSets;
 

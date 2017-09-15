@@ -19,7 +19,7 @@ public class QuestionsSets extends AuditedDomain {
     }
 
     /**
-     *
+     * 试卷标题
      */
     private String title;
 
@@ -40,7 +40,7 @@ public class QuestionsSets extends AuditedDomain {
     private Double totalPoint;
 
     /**
-     *
+     * 题目列表
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "questionsSets")
     private List<Question> quelist;

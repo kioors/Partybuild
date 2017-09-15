@@ -18,13 +18,13 @@ public class ConnetQueOpt extends AuditedDomain {
     }
 
     /**
-     *
+     * 题目
      */
     @ManyToOne(fetch = FetchType.LAZY)
     private Question question;
 
     /**
-     *
+     * 选项
      */
     @ManyToOne(fetch = FetchType.LAZY)
     private Option option;

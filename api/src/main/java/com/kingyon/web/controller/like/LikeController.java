@@ -35,10 +35,8 @@ public class LikeController {
         if (userId == null) {
             return new RestResponse<>(ResponseStatus.NOT_LOGIN, null, "登录状态异常");
         }
+        page = page > 0 ? page - 1 : page;
 
-
-        likeservice.getUserOperationCount(userId, page, size, OperationType.THUMBUP.getType());
-//
-        return null;
+        return new RestResponse<>(ResponseStatus.OK, likeservice.getUserOperationCount(userId, page, size, OperationType.THUMBUP.getType()), "查询成功！");
     }
 }

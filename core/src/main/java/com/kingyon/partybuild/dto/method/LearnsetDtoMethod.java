@@ -21,7 +21,7 @@ public class LearnsetDtoMethod {
         return learnsetDtos;
     }
 
-    private List<LearnsetDto> getArticle(List<Article> articles) {
+    public List<LearnsetDto> getArticle(List<Article> articles) {
         List<LearnsetDto> learnsetDtos = new ArrayList<>();
         for (Article article : articles) {
             LearnsetDto learnsetDto = new LearnsetDto();
@@ -31,22 +31,27 @@ public class LearnsetDtoMethod {
             learnsetDto.setTitle(article.getTitle());
             learnsetDto.setType(0);
             learnsetDto.setThumbUp(article.getThumbUp());
+            learnsetDto.setDate(article.getCreatedDate());
+            learnsetDto.setObjectId(article.getCreateAccountId());
 
             learnsetDtos.add(learnsetDto);
         }
         return learnsetDtos;
     }
 
-    private List<LearnsetDto> getEducation(List<Education> educations) {
+    public List<LearnsetDto> getEducation(List<Education> educations) {
         List<LearnsetDto> learnsetDtos = new ArrayList<>();
         for (Education education : educations) {
             LearnsetDto learnsetDto = new LearnsetDto();
+
             learnsetDto.setCollection(education.getCollection());
             learnsetDto.setImage(education.getHeadImage());
             learnsetDto.setPageView(education.getPageView());
             learnsetDto.setTitle(education.getTitle());
             learnsetDto.setType(1);
             learnsetDto.setThumbUp(education.getThumbUp());
+            learnsetDto.setDate(education.getCreatedDate());
+            learnsetDto.setObjectId(education.getCreateAccountId());
 
             learnsetDtos.add(learnsetDto);
         }
@@ -55,7 +60,7 @@ public class LearnsetDtoMethod {
 
     ;
 
-    private List<LearnsetDto> getVideo(List<Video> videos) {
+    public List<LearnsetDto> getVideo(List<Video> videos) {
         List<LearnsetDto> learnsetDtos = new ArrayList<>();
         for (Video video : videos) {
             LearnsetDto learnsetDto = new LearnsetDto();
@@ -66,6 +71,8 @@ public class LearnsetDtoMethod {
             learnsetDto.setTitle(video.getTitle());
             learnsetDto.setType(2);
             learnsetDto.setThumbUp(video.getThumbUp());
+            learnsetDto.setDate(video.getCreatedDate());
+            learnsetDto.setObjectId(video.getCreateAccountId());
 
             learnsetDtos.add(learnsetDto);
         }

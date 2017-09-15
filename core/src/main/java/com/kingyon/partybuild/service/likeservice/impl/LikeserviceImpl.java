@@ -2,11 +2,10 @@ package com.kingyon.partybuild.service.likeservice.impl;
 
 import com.kingyon.common.repositories.CacheRepository;
 import com.kingyon.common.services.impl.BaseService;
-import com.kingyon.partybuild.domain.learnset.Article;
-import com.kingyon.partybuild.domain.learnset.OperationType;
+import com.kingyon.partybuild.domain.learnset.SourceType;
 import com.kingyon.partybuild.domain.learnset.UserOperationCount;
 import com.kingyon.partybuild.dto.LearnsetDto;
-import com.kingyon.partybuild.repositories.ArticleRepository;
+import com.kingyon.partybuild.dto.method.LearnsetDtoMethod;
 import com.kingyon.partybuild.repositories.LikesRepository;
 import com.kingyon.partybuild.service.likeservice.Likeservice;
 import org.apache.commons.collections.CollectionUtils;
@@ -25,8 +24,8 @@ public class LikeserviceImpl extends BaseService<UserOperationCount, Long> imple
 
     @Autowired
     private LikesRepository likesRepository;
-    @Autowired
-    private ArticleRepository articleRepository;
+
+    private LearnsetDtoMethod learnsetDtoMethod = new LearnsetDtoMethod();
 
     @Override
     protected CacheRepository<UserOperationCount, Long> getRepository() {
@@ -34,32 +33,42 @@ public class LikeserviceImpl extends BaseService<UserOperationCount, Long> imple
     }
 
     @Override
-    public List<UserOperationCount> getUserOperationCount(Long userId, int page, int size, int type) {
+    public List<LearnsetDto> getUserOperationCount(Long userId, int page, int size, int type) {
         getRepository().findAll(new Sort(Sort.Direction.DESC));
+        List<LearnsetDto> learnsetDtos = new ArrayList<>();
+
         List<UserOperationCount> userOperationCounts = likesRepository.getUserOperationCountByUid(userId, type, page, size);
+
         if (CollectionUtils.isEmpty(userOperationCounts)) {
 
         }
-        List<LearnsetDto> learnsetDtos = new ArrayList<>();
+
 
         for (UserOperationCount uc : userOperationCounts) {
-
-            if (uc.getNumType() == OperationType.THUMBUP) {
-                LearnsetDto learnsetDto = new LearnsetDto();
-                Article art = articleRepository.getOne(uc.getSourceId());
-                learnsetDto.setThumbUp(art.getThumbUp());
-                learnsetDto.setTitle(art.getTitle());
-                learnsetDto.setPageView(art.getPageView());
-                learnsetDto.setType(0);
-                learnsetDto.setCollection(art.getCollection());
-                learnsetDto.setDate(art.getUpdatedDate());
-                learnsetDto.setObjectId(art.getUpdateAccountId());
-                learnsetDtos.add(learnsetDto);
-
-            } else {
-                return null;
+            if (uc.getSourceType() == SourceType.ARTICLE) {
+                learnsetDtos.addAll(getArticles(userId));
+            } else if (uc.getSourceType() == SourceType.ENCLOSURE) {
+                learnsetDtos.addAll(getEducations(userId));
+            } else if (uc.getSourceType() == SourceType.VIDEO) {
+                learnsetDtos.addAll(getVideos(userId));
             }
         }
-        return userOperationCounts;
+        return learnsetDtos;
+    }
+
+
+    @Override
+    public List<LearnsetDto> getArticles(Long userId) {
+        return learnsetDtoMethod.getArticle(likesRepository.getArticles(userId));
+    }
+
+    @Override
+    public List<LearnsetDto> getEducations(Long userId) {
+        return learnsetDtoMethod.getEducation(likesRepository.getEducations(userId));
+    }
+
+    @Override
+    public List<LearnsetDto> getVideos(Long ueserId) {
+        return learnsetDtoMethod.getVideo(likesRepository.getVideos(ueserId));
     }
 }

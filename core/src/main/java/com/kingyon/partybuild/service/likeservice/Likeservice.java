@@ -2,6 +2,7 @@ package com.kingyon.partybuild.service.likeservice;
 
 import com.kingyon.common.services.IBaseService;
 import com.kingyon.partybuild.domain.learnset.UserOperationCount;
+import com.kingyon.partybuild.dto.LearnsetDto;
 
 import java.util.List;
 
@@ -10,6 +11,12 @@ import java.util.List;
  */
 public interface Likeservice extends IBaseService<UserOperationCount, Long> {
 
-    List<UserOperationCount> getUserOperationCount(Long userId, int page, int size, int type);
+    List<LearnsetDto> getUserOperationCount(Long userId, int page, int size, int type);
 
+
+    List<LearnsetDto> getArticles(Long userId);
+
+    List<LearnsetDto> getEducations(Long userId);
+
+    List<LearnsetDto> getVideos(Long ueserId);
 }

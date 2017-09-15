@@ -1,4 +1,4 @@
-package com.kingyon.partybuild.dto;
+package com.kingyon.partybuild.dto.api;
 
 import com.kingyon.partybuild.domain.notice.Notice;
 

@@ -3,8 +3,10 @@ package com.kingyon.partybuild.domain.learnset;
 
 import com.kingyon.common.domain.AuditedDomain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * 首页轮播图
@@ -22,8 +24,8 @@ public class LoopImages extends AuditedDomain {
     /**
      *
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "loopImages", cascade = CascadeType.ALL)
-    private List<ImageLibrary> imagelist;
+    @ManyToOne
+    private ImageLibrary loopImage;
 
     /**
      * 1-文章，2-文档，3-闯关，4-考试，5-专题
@@ -37,12 +39,12 @@ public class LoopImages extends AuditedDomain {
     @Column(name = "source_id")
     private Long sourceId;
 
-    public List<ImageLibrary> getImagelist() {
-        return imagelist;
+    public ImageLibrary getLoopImage() {
+        return loopImage;
     }
 
-    public void setImagelist(List<ImageLibrary> imagelist) {
-        this.imagelist = imagelist;
+    public void setLoopImage(ImageLibrary loopImage) {
+        this.loopImage = loopImage;
     }
 
     public ImageUrlType getSourceType() {

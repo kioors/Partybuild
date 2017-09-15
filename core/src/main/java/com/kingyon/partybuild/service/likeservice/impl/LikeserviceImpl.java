@@ -2,6 +2,7 @@ package com.kingyon.partybuild.service.likeservice.impl;
 
 import com.kingyon.common.repositories.CacheRepository;
 import com.kingyon.common.services.impl.BaseService;
+import com.kingyon.partybuild.domain.learnset.Article;
 import com.kingyon.partybuild.domain.learnset.SourceType;
 import com.kingyon.partybuild.domain.learnset.UserOperationCount;
 import com.kingyon.partybuild.dto.LearnsetDto;
@@ -56,6 +57,11 @@ public class LikeserviceImpl extends BaseService<UserOperationCount, Long> imple
             }
         }
         return learnsetDtos;
+    }
+
+    @Override
+    public Article getAricle(Long userId) {
+        return null;
     }
 
 

@@ -9,14 +9,7 @@ import java.util.List;
 /**
  * Created by Machenike on 2017/9/15.
  */
-public interface StudyService extends IBaseService<Article, Long> {
+public interface DynamicListService extends IBaseService<Article, Long> {
 
-    /**
-     * 学习讲话
-     *
-     * @return 文章列表
-     */
-    List<Article> getArticles(Pageable pageable, boolean del);
-
-
+    List<Article> getDynamicList(Pageable pageable, boolean del);
 }

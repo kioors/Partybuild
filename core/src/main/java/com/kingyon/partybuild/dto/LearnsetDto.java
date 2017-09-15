@@ -1,11 +1,13 @@
 package com.kingyon.partybuild.dto;
 
+import com.kingyon.common.domain.BaseDomain;
+
 import java.util.Date;
 
 /**
  * Created by Machenike on 2017/9/14.
  */
-public class LearnsetDto {
+public class LearnsetDto extends BaseDomain<Long> {
     /**
      * 收藏量
      */

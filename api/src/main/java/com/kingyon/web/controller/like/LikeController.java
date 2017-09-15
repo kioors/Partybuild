@@ -43,6 +43,15 @@ public class LikeController {
         UserOperationCountQuery query = new UserOperationCountQuery(userId, OperationType.THUMBUP, false);
         Page<UserOperationCount> userOperationCounts = likeservice.findAllByQuery(query, page, size, new Sort(Sort.Direction.DESC));
 
+        for (UserOperationCount userOcount : userOperationCounts
+                ) {
+//             LearnsetDto learnsetDto =  likeservice.findOne(userOcount.getSourceId());
+
+        }
+
+
+
+
         page = page > 0 ? page - 1 : page;
 
         return new RestResponse<>(ResponseStatus.OK, likeservice.getUserOperationCount(userId, page, size, OperationType.THUMBUP.getType()), "查询成功！");

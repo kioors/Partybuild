@@ -26,4 +26,7 @@ public interface LikesRepository extends CacheRepository<UserOperationCount, Lon
 
     @Query(value = "select v from Video v where deleted = false and userId = ?1")
     public List<Video> getVideos(Long userId);
+
+    @Query(value = "select a from Article a where deleted = false and createAccountId = ?1")
+    Article getArticle(Long userId);
 }

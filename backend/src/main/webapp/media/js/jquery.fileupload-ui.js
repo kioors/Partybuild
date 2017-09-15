@@ -34,12 +34,12 @@
     'use strict';
 
     // The UI version extends the file upload widget
-    // and adds complete user interface interaction:
+    // and adds complete personal interface interaction:
     $.widget('blueimp.fileupload', $.blueimp.fileupload, {
 
         options: {
             // By default, files added to the widget are uploaded as soon
-            // as the user clicks on the start buttons. To enable automatic
+            // as the personal clicks on the start buttons. To enable automatic
             // uploads, set the following option to true:
             autoUpload: false,
             // The following option limits the number of files that are

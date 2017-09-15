@@ -148,14 +148,14 @@ public class AccountController extends AbstractController {
             return result;
         }
 
-        /*List<User> users=new ArrayList<>();
+        /*List<personal> users=new ArrayList<>();
         //users=userService.findUserByMobile(mobile);
         if(users!=null){
-            User user=users.get(0);
+            personal personal=users.get(0);
             if ("验证码".equals(code)){
                 if(pass !=null){
-                    user.setPassword(pass);
-                    //userService.save(user);
+                    personal.setPassword(pass);
+                    //userService.save(personal);
                     return "changepassok";
                 }
             }

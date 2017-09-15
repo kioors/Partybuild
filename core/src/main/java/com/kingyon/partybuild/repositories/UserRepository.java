@@ -14,7 +14,7 @@ public interface UserRepository extends CacheRepository<User, Long> {
      * 通过Mobile查询后台用户
      *
      * @param mobile
-     * @return User
+     * @return user
      */
     @Query(value = "select u from User u where u.deleted = false and u.mobile = ?1")
     User findUserByMobile(String mobile);

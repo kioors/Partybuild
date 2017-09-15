@@ -49,7 +49,7 @@ var UITree = function () {
                 alert(output);
             });
 
-            //Listening for the 'openbranch' event. Look for e.node, which is the actual node the user opens
+            //Listening for the 'openbranch' event. Look for e.node, which is the actual node the personal opens
 
             $("#tree_1").on("openbranch.tree", "[data-toggle=branch]", function (e) {
 
@@ -59,7 +59,7 @@ var UITree = function () {
             });
 
 
-            //Listening for the 'closebranch' event. Look for e.node, which is the actual node the user closed
+            //Listening for the 'closebranch' event. Look for e.node, which is the actual node the personal closed
 
             $("#tree_1").on("closebranch.tree", "[data-toggle=branch]", function (e) {
 

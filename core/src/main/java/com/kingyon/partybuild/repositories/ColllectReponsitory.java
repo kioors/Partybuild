@@ -16,7 +16,4 @@ import java.util.List;
  */
 public interface ColllectReponsitory extends CacheRepository<UserOperationCount,Long> {
 
-    @Query(value = "select u from UserOperationCount as u where deleted = false and userId = ?1 and num_type=?2 limit ?3,?4")
-    public List<UserOperationCount> getUserOperationCountByUid(Long userId, int type, int page, int size);
-
 }

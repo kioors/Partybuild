@@ -20,25 +20,25 @@ public class PropsValue {
      * 后台用户附件本地存储路径
      */
     public static final String USER_ATTACHMENT_PATH = Props.getString(
-            PropsKey.USER_ATTACHMENT_PATH, System.getProperty("user.dir"));
+            PropsKey.USER_ATTACHMENT_PATH, System.getProperty("personal.dir"));
 
     /**
      * 后台用户附件远程访问地址
      */
     public static final String USER_ATTACHMENT_URL = Props.getString(
-            PropsKey.USER_ATTACHMENT_URL, "http://127.0.0.1/user");
+            PropsKey.USER_ATTACHMENT_URL, "http://127.0.0.1/personal");
 
     /**
      * 客户端用户附件本地存储路径
      */
     public static final String MEMBER_ATTACHMENT_PATH = Props.getString(
-            PropsKey.MEMBER_ATTACHMENT_PATH, System.getProperty("user.dir"));
+            PropsKey.MEMBER_ATTACHMENT_PATH, System.getProperty("personal.dir"));
 
     /**
      * 客户端用户附件远程访问地址
      */
     public static final String MEMBER_ATTACHMENT_URL = Props.getString(
-            PropsKey.MEMBER_ATTACHMENT_URL, "http://127.0.0.1/user");
+            PropsKey.MEMBER_ATTACHMENT_URL, "http://127.0.0.1/personal");
 
     /**
      * 用户账号注册验证码最大有效时间（分钟）

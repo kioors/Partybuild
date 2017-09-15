@@ -102,7 +102,7 @@
                 else {
                     var oPre = oSettings.aoPreSearchCols[iCol];
 
-                    /* Don't require that the user must specify bRegex, bSmart or bCaseInsensitive */
+                    /* Don't require that the personal must specify bRegex, bSmart or bCaseInsensitive */
                     if (oPre.bRegex === undefined) {
                         oPre.bRegex = true;
                     }
@@ -131,7 +131,7 @@
             function _fnColumnOptions(oSettings, iCol, oOptions) {
                 var oCol = oSettings.aoColumns[iCol];
 
-                /* User specified column options */
+                /* personal specified column options */
                 if (oOptions !== undefined && oOptions !== null) {
                     /* Backwards compatibility for mDataProp */
                     if (oOptions.mDataProp && !oOptions.mData) {
@@ -528,7 +528,7 @@
                 for (iColumn = 0, iColumns = oSettings.aoColumns.length; iColumn < iColumns; iColumn++) {
                     oCol = oSettings.aoColumns[iColumn];
 
-                    /* Get the title of the column - unless there is a user set one */
+                    /* Get the title of the column - unless there is a personal set one */
                     if (oCol.sTitle === null) {
                         oCol.sTitle = oCol.nTh.innerHTML;
                     }
@@ -1000,7 +1000,7 @@
                             _fnRender(oSettings, iRow, i) :
                             _fnGetCellData(oSettings, iRow, i, 'display');
 
-                        /* Add user defined class */
+                        /* Add personal defined class */
                         if (oCol.sClass !== null) {
                             nTd.className = oCol.sClass;
                         }
@@ -1051,7 +1051,7 @@
                             $(nTh).addClass(oSettings.aoColumns[i].sClass);
                         }
 
-                        /* Set the title of the column if it is user defined (not what was auto detected) */
+                        /* Set the title of the column if it is personal defined (not what was auto detected) */
                         if (oSettings.aoColumns[i].sTitle != nTh.innerHTML) {
                             nTh.innerHTML = oSettings.aoColumns[i].sTitle;
                         }
@@ -1431,7 +1431,7 @@
                 /* Track where we want to insert the option */
                 var nInsertNode = oSettings.nTableWrapper;
 
-                /* Loop over the user set positioning and place the elements as needed */
+                /* Loop over the personal set positioning and place the elements as needed */
                 var aDom = oSettings.sDom.split('');
                 var nTmp, iPushFeature, cOption, nNewNode, cNext, sAttr, j;
                 for (var i = 0; i < aDom.length; i++) {
@@ -1987,7 +1987,7 @@
 
 
             /**
-             * Filter the data table based on user input and draw the table
+             * Filter the data table based on personal input and draw the table
              *  @param {object} oSettings dataTables settings object
              *  @param {string} sInput string to filter on
              *  @param {int} iForce optional - force a research of the master array (1) or not (undefined or 0)
@@ -2132,7 +2132,7 @@
 
 
             /**
-             * Convert raw data into something that the user can search on
+             * Convert raw data into something that the personal can search on
              *  @param {string} sData data to be modified
              *  @param {string} sType data type
              *  @returns {string} search string
@@ -2402,7 +2402,7 @@
 
 
             /**
-             * Generate the node required for user display length changing
+             * Generate the node required for personal display length changing
              *  @param {object} oSettings dataTables settings object
              *  @returns {node} Display length feature node
              *  @memberof DataTable#oApi
@@ -3003,7 +3003,7 @@
                         o.nScrollFoot.style.width = _fnStringToCss(iCorrection);
                     }
 
-                    /* And give the user a warning that we've stopped the table getting too small */
+                    /* And give the personal a warning that we've stopped the table getting too small */
                     if (o.oScroll.sX === "") {
                         _fnLog(o, 1, "The table cannot fit into the current element which will cause column" +
                             " misalignment. The table has been drawn at its minimum possible width.");
@@ -3149,7 +3149,7 @@
                 var widthAttr = oSettings.nTable.getAttribute('width');
                 var nWrapper = oSettings.nTable.parentNode;
 
-                /* Convert any user input sizes into pixel sizes */
+                /* Convert any personal input sizes into pixel sizes */
                 for (i = 0; i < iColums; i++) {
                     if (oSettings.aoColumns[i].bVisible) {
                         iVisibleColumns++;
@@ -3181,7 +3181,7 @@
                 }
                 else {
                     /* Otherwise we are going to have to do some calculations to get the width of each column.
-				 * Construct a 1 row table with the widest node in the data, and any user defined widths,
+				 * Construct a 1 row table with the widest node in the data, and any personal defined widths,
 				 * then insert it into the DOM and allow the browser to do all the hard work of
 				 * calculating table widths.
 				 */
@@ -3279,7 +3279,7 @@
                     /* Browsers need a bit of a hand when a width is assigned to any columns when
 				 * x-scrolling as they tend to collapse the table to the min-width, even if
 				 * we sent the column widths. So we need to keep track of what the table width
-				 * should be by summing the user given values, and the automatic values
+				 * should be by summing the personal given values, and the automatic values
 				 */
                     if (oSettings.oScroll.sX !== "") {
                         var iTotal = 0;
@@ -3715,7 +3715,7 @@
                         }, 0);
                     }
 
-                    /* Call the user specified callback function - used for async user interaction */
+                    /* Call the personal specified callback function - used for async personal interaction */
                     if (typeof fnCallback == 'function') {
                         fnCallback(oSettings);
                     }
@@ -3924,7 +3924,7 @@
 
                 /* Column visibility state
 			 * Pass back visibility settings to the init handler, but to do not here override
-			 * the init object that the user might have passed in
+			 * the init object that the personal might have passed in
 			 */
                 oInit.saved_aoColumns = [];
                 for (var i = 0; i < oData.abVisCols.length; i++) {
@@ -3942,7 +3942,7 @@
              *  @param {string} sValue the value the cookie should take
              *  @param {int} iSecs duration of the cookie
              *  @param {string} sBaseName sName is made up of the base + file name - this is the base
-             *  @param {function} fnCallback User definable function to modify the cookie
+             *  @param {function} fnCallback personal definable function to modify the cookie
              *  @memberof DataTable#oApi
              */
             function _fnCreateCookie(sName, sValue, iSecs, sBaseName, fnCallback) {
@@ -4138,7 +4138,7 @@
             /**
              * Log an error message
              *  @param {object} oSettings dataTables settings object
-             *  @param {int} iLevel log error messages, or display them to the user
+             *  @param {int} iLevel log error messages, or display them to the personal
              *  @param {string} sMesg error message
              *  @memberof DataTable#oApi
              */
@@ -4742,7 +4742,7 @@
                 _fnDeleteIndex(oSettings.aiDisplayMaster, iAODataIndex);
                 _fnDeleteIndex(oSettings.aiDisplay, iAODataIndex);
 
-                /* If there is a user callback function - call it */
+                /* If there is a personal callback function - call it */
                 if (typeof fnCallBack === "function") {
                     fnCallBack.call(this, oSettings, oData);
                 }
@@ -5483,7 +5483,7 @@
                 }
 
                 /* Modify the search index for this row (strictly this is likely not needed, since fnReDraw
-			 * will rebuild the search array - however, the redraw might be disabled by the user)
+			 * will rebuild the search array - however, the redraw might be disabled by the personal)
 			 */
                 var iDisplayIndex = $.inArray(iRow, oSettings.aiDisplay);
                 oSettings.asDataSearch[iDisplayIndex] = _fnBuildSearchRow(
@@ -5772,17 +5772,17 @@
                 _fnMap(oSettings.oLanguage, oInit, "fnInfoCallback");
 
                 /* Callback functions which are array driven */
-                _fnCallbackReg(oSettings, 'aoDrawCallback', oInit.fnDrawCallback, 'user');
-                _fnCallbackReg(oSettings, 'aoServerParams', oInit.fnServerParams, 'user');
-                _fnCallbackReg(oSettings, 'aoStateSaveParams', oInit.fnStateSaveParams, 'user');
-                _fnCallbackReg(oSettings, 'aoStateLoadParams', oInit.fnStateLoadParams, 'user');
-                _fnCallbackReg(oSettings, 'aoStateLoaded', oInit.fnStateLoaded, 'user');
-                _fnCallbackReg(oSettings, 'aoRowCallback', oInit.fnRowCallback, 'user');
-                _fnCallbackReg(oSettings, 'aoRowCreatedCallback', oInit.fnCreatedRow, 'user');
-                _fnCallbackReg(oSettings, 'aoHeaderCallback', oInit.fnHeaderCallback, 'user');
-                _fnCallbackReg(oSettings, 'aoFooterCallback', oInit.fnFooterCallback, 'user');
-                _fnCallbackReg(oSettings, 'aoInitComplete', oInit.fnInitComplete, 'user');
-                _fnCallbackReg(oSettings, 'aoPreDrawCallback', oInit.fnPreDrawCallback, 'user');
+                _fnCallbackReg(oSettings, 'aoDrawCallback', oInit.fnDrawCallback, 'personal');
+                _fnCallbackReg(oSettings, 'aoServerParams', oInit.fnServerParams, 'personal');
+                _fnCallbackReg(oSettings, 'aoStateSaveParams', oInit.fnStateSaveParams, 'personal');
+                _fnCallbackReg(oSettings, 'aoStateLoadParams', oInit.fnStateLoadParams, 'personal');
+                _fnCallbackReg(oSettings, 'aoStateLoaded', oInit.fnStateLoaded, 'personal');
+                _fnCallbackReg(oSettings, 'aoRowCallback', oInit.fnRowCallback, 'personal');
+                _fnCallbackReg(oSettings, 'aoRowCreatedCallback', oInit.fnCreatedRow, 'personal');
+                _fnCallbackReg(oSettings, 'aoHeaderCallback', oInit.fnHeaderCallback, 'personal');
+                _fnCallbackReg(oSettings, 'aoFooterCallback', oInit.fnFooterCallback, 'personal');
+                _fnCallbackReg(oSettings, 'aoInitComplete', oInit.fnInitComplete, 'personal');
+                _fnCallbackReg(oSettings, 'aoPreDrawCallback', oInit.fnPreDrawCallback, 'personal');
 
                 if (oSettings.oFeatures.bServerSide && oSettings.oFeatures.bSort &&
                     oSettings.oFeatures.bSortClasses) {
@@ -6199,7 +6199,7 @@
              *
              *  @example
              *    // The following example shows custom filtering being applied to the fourth column (i.e.
-             *    // the aData[3] index) based on two input values from the end-user, matching the data in
+             *    // the aData[3] index) based on two input values from the end-personal, matching the data in
              *    // a certain range.
              *    $.fn.dataTableExt.afnFiltering.push(
              *      function( oSettings, aData, iDataIndex ) {
@@ -6260,7 +6260,7 @@
              *  @deprecated
              *
              *  @example
-             *    // Updating the cached sorting information with user entered values in HTML input elements
+             *    // Updating the cached sorting information with personal entered values in HTML input elements
              *    jQuery.fn.dataTableExt.afnSortData['dom-text'] = function ( oSettings, iColumn )
              *    {
 		 *      var aData = [];
@@ -6459,7 +6459,7 @@
 
             /**
              * Pagination plug-in methods - The style and controls of the pagination can significantly
-             * impact on how the end user interacts with the data in your table, and DataTables allows
+             * impact on how the end personal interacts with the data in your table, and DataTables allows
              * the addition of pagination controls by extending this object, which can then be enabled
              * through the <i>sPaginationType</i> initialisation parameter. Each pagination type that
              * is added is an object (the property name of which is what <i>sPaginationType</i> refers
@@ -7144,9 +7144,9 @@
 
             /**
              * This parameter is basically identical to the aaSorting parameter, but
-             * cannot be overridden by user interaction with the table. What this means
+             * cannot be overridden by personal interaction with the table. What this means
              * is that you could have a column (visible or hidden) which the sorting will
-             * always be forced on first - any sorting after that (from the user) will
+             * always be forced on first - any sorting after that (from the personal) will
              * then be performed as required. This can be useful for grouping rows
              * together.
              *  @type array
@@ -7338,7 +7338,7 @@
 
             /**
              * Enable or disable filtering of data. Filtering in DataTables is "smart" in
-             * that it allows the end user to input multiple words (space separated) and
+             * that it allows the end personal to input multiple words (space separated) and
              * will match a row containing those words, even if not in the order that was
              * specified (this allow matching across multiple columns). Note that if you
              * wish to use filtering in DataTables this must remain 'true' - to remove the
@@ -7395,7 +7395,7 @@
 
 
             /**
-             * Allows the end user to select the size of a formatted page from a select
+             * Allows the end personal to select the size of a formatted page from a select
              * menu (sizes are 10, 25, 50 and 100). Requires pagination (bPaginate).
              *  @type boolean
              *  @default true
@@ -7526,7 +7526,7 @@
             /**
              * Enable infinite scrolling for DataTables (to be used in combination with
              * sScrollY). Infinite scrolling means that DataTables will continually load
-             * data as a user scrolls through a table, which is very useful for large
+             * data as a personal scrolls through a table, which is very useful for large
              * dataset. This cannot be used with pagination, which is automatically
              * disabled. Note - the Scroller extra for DataTables is recommended in
              * in preference to this option.
@@ -7624,7 +7624,7 @@
             /**
              * Enable or disable state saving. When enabled a cookie will be used to save
              * table display information such as pagination information, display length,
-             * filtering and sorting. As such when the end user reloads the page the
+             * filtering and sorting. As such when the end personal reloads the page the
              * display display will match what thy had previously set up.
              *  @type boolean
              *  @default false
@@ -7743,7 +7743,7 @@
              * When rendering large numbers in the information element for the table
              * (i.e. "Showing 1 to 10 of 57 entries") DataTables will render large numbers
              * to have a comma separator for the 'thousands' units (e.g. 1 million is
-             * rendered as "1,000,000") to help readability for the end user. This
+             * rendered as "1,000,000") to help readability for the end personal. This
              * function will override the default method DataTables uses.
              *  @type function
              *  @member
@@ -8245,7 +8245,7 @@
 
             /**
              * Number of rows to display on a single page when using pagination. If
-             * feature enabled (bLengthChange) then the end user will be able to override
+             * feature enabled (bLengthChange) then the end personal will be able to override
              * this to a custom setting using a pop-up menu.
              *  @type int
              *  @default 10
@@ -8284,7 +8284,7 @@
              * The scroll gap is the amount of scrolling that is left to go before
              * DataTables will load the next 'page' of data automatically. You typically
              * want a gap which is big enough that the scrolling will be smooth for the
-             * user, while not so large that it will load more data than need.
+             * personal, while not so large that it will load more data than need.
              *  @type int
              *  @default 100
              *  @dtopt Options
@@ -8324,7 +8324,7 @@
 
 
             /**
-             * All strings that DataTables uses in the user interface that it creates
+             * All strings that DataTables uses in the personal interface that it creates
              * are defined in this object, allowing you to modified them individually or
              * completely replace them all as required.
              *  @namespace
@@ -8388,7 +8388,7 @@
                 "oPaginate": {
                     /**
                      * Text to use when using the 'full_numbers' type of pagination for the
-                     * button to take the user to the first page.
+                     * button to take the personal to the first page.
                      *  @type string
                      *  @default First
                      *  @dtopt Language
@@ -8409,7 +8409,7 @@
 
                     /**
                      * Text to use when using the 'full_numbers' type of pagination for the
-                     * button to take the user to the last page.
+                     * button to take the personal to the last page.
                      *  @type string
                      *  @default Last
                      *  @dtopt Language
@@ -8429,7 +8429,7 @@
 
 
                     /**
-                     * Text to use for the 'next' pagination button (to take the user to the
+                     * Text to use for the 'next' pagination button (to take the personal to the
                      * next page).
                      *  @type string
                      *  @default Next
@@ -8450,7 +8450,7 @@
 
 
                     /**
-                     * Text to use for the 'previous' pagination button (to take the user to
+                     * Text to use for the 'previous' pagination button (to take the personal to
                      * the previous page).
                      *  @type string
                      *  @default Previous
@@ -8492,7 +8492,7 @@
 
 
                 /**
-                 * This string gives information to the end user about the information that
+                 * This string gives information to the end personal about the information that
                  * is current on display on the page. The _START_, _END_ and _TOTAL_
                  * variables are all dynamically replaced as the table display updates, and
                  * can be freely moved or removed as the language requirements change.
@@ -8532,7 +8532,7 @@
 
 
                 /**
-                 * When a user filters the information in a table, this string is appended
+                 * When a personal filters the information in a table, this string is appended
                  * to the information (sInfo) to give an idea of how strong the filtering
                  * is. The variable _MAX_ is dynamically updated.
                  *  @type string
@@ -8635,7 +8635,7 @@
                 /**
                  * When using Ajax sourced data and during the first draw when DataTables is
                  * gathering the data, this message is shown in an empty row in the table to
-                 * indicate to the end user the the data is being loaded. Note that this
+                 * indicate to the end personal the the data is being loaded. Note that this
                  * parameter is not used when loading data by server-side processing, just
                  * Ajax sourced data with client-side processing.
                  *  @type string
@@ -8655,7 +8655,7 @@
 
 
                 /**
-                 * Text which is displayed when the table is processing a user action
+                 * Text which is displayed when the table is processing a personal action
                  * (usually a sort command or similar).
                  *  @type string
                  *  @default Processing...
@@ -8674,7 +8674,7 @@
 
 
                 /**
-                 * Details the actions that will be taken when the user types into the
+                 * Details the actions that will be taken when the personal types into the
                  * filtering input text box. The variable "_INPUT_", if used in the string,
                  * is replaced with the HTML text box for the filtering input allowing
                  * control over where it appears in the string. If "_INPUT_" is not given
@@ -8895,7 +8895,7 @@
             /**
              * DataTables features two different built-in pagination interaction methods
              * ('two_button' or 'full_numbers') which present different page controls to
-             * the end user. Further methods can be added using the API (see below).
+             * the end personal. Further methods can be added using the API (see below).
              *  @type string
              *  @default two_button
              *  @dtopt Options
@@ -9140,7 +9140,7 @@
             /**
              * <code>Deprecated</code> When using fnRender() for a column, you may wish
              * to use the original data (before rendering) for sorting and filtering
-             * (the default is to used the rendered data that the user can see). This
+             * (the default is to used the rendered data that the personal can see). This
              * may be useful for dates etc.
              *
              * Please note that this option has now been deprecated and will be removed
@@ -9607,7 +9607,7 @@
             /**
              * Defines a data source type for the sorting which can be used to read
              * real-time information from the table (updating the internally cached
-             * version) prior to sorting. This allows sorting to occur on user editable
+             * version) prior to sorting. This allows sorting to occur on personal editable
              * elements such as form inputs.
              *  @type string
              *  @default std
@@ -9823,7 +9823,7 @@
                 "bInfo": null,
 
                 /**
-                 * Present a user control allowing the end user to change the page size
+                 * Present a personal control allowing the end personal to change the page size
                  * when pagination is enabled.
                  * Note that this parameter will be set by the initialisation routine. To
                  * set a default use {@link DataTable.defaults}.
@@ -9842,7 +9842,7 @@
 
                 /**
                  * Processing indicator enable flag whenever DataTables is enacting a
-                 * user request - typically an Ajax request for server-side processing.
+                 * personal request - typically an Ajax request for server-side processing.
                  * Note that this parameter will be set by the initialisation routine. To
                  * set a default use {@link DataTable.defaults}.
                  *  @type boolean
@@ -10421,7 +10421,7 @@
             "fnFormatNumber": null,
 
             /**
-             * List of options that can be used for the user selectable length menu.
+             * List of options that can be used for the personal selectable length menu.
              * Note that this parameter will be set by the initialisation routine. To
              * set a default use {@link DataTable.defaults}.
              *  @type array
@@ -11235,7 +11235,7 @@
 
         /**
          * Processing event, fired when DataTables is doing some kind of processing (be it,
-         * sort, filter or anything else). Can be used to indicate to the end user that
+         * sort, filter or anything else). Can be used to indicate to the end personal that
          * there is something happening, or that something has finished.
          *  @name DataTable#processing
          *  @event

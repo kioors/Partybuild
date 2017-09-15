@@ -44,8 +44,8 @@ public class QuestionsSets extends AuditedDomain {
      */
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(name = "K_SET_QUESTIONS",
-            joinColumns = {@JoinColumn(name = "SET_ID", referencedColumnName = "set_id")},
-            inverseJoinColumns = {@JoinColumn(name = "QUESTION_ID", referencedColumnName = "question_id")
+            joinColumns = {@JoinColumn(name = "SET_ID", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "QUESTION_ID", referencedColumnName = "id")
             })
     private List<Question> quelist;
 

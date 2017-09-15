@@ -55,10 +55,7 @@ public class QuestionsServiceImpl extends BaseService<Question, Long> implements
 
         //QuestionsFindCountQuery questionsFindCountQuery = new QuestionsFindCountQuery(PaperType.KNOWLEDGEBREAK.getType(), false);
         //Page<Question> questionPage = findAllByQuery(questionsFindCountQuery, 0, 10, new Sort(Sort.Direction.ASC, "id"));
-        System.out.println("((((((((((((((((");
-        long count = questionsRepository.count();
-        System.out.println("((((((((((((((((");
-        questionsRepository.findAll();
+        System.out.println(questionsRepository.findAll());
         // List<Question> questionPage2 = questionsRepository.findAll();
         //long questionCount = questionPage.getTotalElements();
 

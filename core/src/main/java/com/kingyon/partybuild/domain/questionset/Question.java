@@ -3,6 +3,7 @@ package com.kingyon.partybuild.domain.questionset;
 import com.kingyon.common.domain.AuditedDomain;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * 题目
@@ -46,8 +47,8 @@ public class Question extends AuditedDomain {
     /**
      * 所属答题试卷
      */
-    @ManyToOne(fetch = FetchType.LAZY)
-    private QuestionsSets questionsSets;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "quelist")
+    private List<QuestionsSets> questionsSetsList;
 
     public String getQuestion() {
         return question;
@@ -89,11 +90,11 @@ public class Question extends AuditedDomain {
         this.point = point;
     }
 
-    public QuestionsSets getQuestionsSets() {
-        return questionsSets;
+    public List<QuestionsSets> getQuestionsSetsList() {
+        return questionsSetsList;
     }
 
-    public void setQuestionsSets(QuestionsSets questionsSets) {
-        this.questionsSets = questionsSets;
+    public void setQuestionsSetsList(List<QuestionsSets> questionsSetsList) {
+        this.questionsSetsList = questionsSetsList;
     }
 }

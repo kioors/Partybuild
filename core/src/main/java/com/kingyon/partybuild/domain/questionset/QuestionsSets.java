@@ -42,7 +42,11 @@ public class QuestionsSets extends AuditedDomain {
     /**
      * 题目列表
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "questionsSets")
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinTable(name = "K_SET_QUESTIONS",
+            joinColumns = {@JoinColumn(name = "SET_ID", referencedColumnName = "set_id")},
+            inverseJoinColumns = {@JoinColumn(name = "QUESTION_ID", referencedColumnName = "question_id")
+            })
     private List<Question> quelist;
 
     public String getTitle() {

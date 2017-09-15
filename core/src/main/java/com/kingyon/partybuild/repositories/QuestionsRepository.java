@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface QuestionsRepository extends CacheRepository<Question, Long> {
 
-    @Query("select count(qs.id) from Question qs where qs.deleted = false and qs.paperType = ?1")
+    @Query("select count(qs.id) from Question qs where qs.deleted = false and qs.paperType.type = ?1")
     int findCount(int type);
 
     @Query(value = "select qs from Question qs where qs.deleted = false and qs.paperType = ?1")

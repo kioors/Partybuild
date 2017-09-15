@@ -49,6 +49,17 @@ public class QuestionsSets extends AuditedDomain {
             })
     private List<Question> quelist;
 
+    @Override
+    public String toString() {
+        return "QuestionsSets{" +
+                "title='" + title + '\'' +
+                ", type=" + type +
+                ", content='" + content + '\'' +
+                ", totalPoint=" + totalPoint +
+                ", quelist=" + quelist +
+                '}';
+    }
+
     public String getTitle() {
         return title;
     }
@@ -88,4 +99,5 @@ public class QuestionsSets extends AuditedDomain {
     public void setQuelist(List<Question> quelist) {
         this.quelist = quelist;
     }
+
 }

@@ -30,4 +30,5 @@ public class Option extends AuditedDomain {
     public void setContent(String content) {
         this.content = content;
     }
+
 }

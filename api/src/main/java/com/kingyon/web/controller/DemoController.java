@@ -9,10 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +24,7 @@ public class DemoController extends AbstractRestController {
 
     @ApiOperation(value = "测试根据name查找DemoBean")
     @RequestMapping(value = "/findDemoBeanByName", method = RequestMethod.GET)
-    public RestResponse<List<DemoResponse>> findDemoBeanByName(@RequestParam @ApiParam(value = "名称") String name) {
+    public RestResponse<List<DemoResponse>> findDemoBeanByName(@RequestHeader("token") String token, @RequestParam @ApiParam(value = "名称") String name) {
         List<DemoBean> demoBeanList=demoService.findDemoBeanByName(name);
         List<DemoResponse> demoResponseList = demoBeanList.stream().map(source -> new DemoResponse(source)).collect(Collectors.toList());
         return new RestResponse<List<DemoResponse>>(ResponseStatus.OK, demoResponseList, "查询成功");

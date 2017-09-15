@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface LikesRepository extends CacheRepository<UserOperationCount, Long> {
 
-    @Query(value = "select u from UserOperationCount u where deleted = false and userId = ?1 and num_type=?2 limit ?3,?4")
+    @Query(value = "select u from UserOperationCount u where deleted = false and userId = ?1 and num_type=?2 limit ?3,?4", nativeQuery = true)
     public List<UserOperationCount> getUserOperationCountByUid(Long Source_id, int type, int page, int size);
 
 

@@ -6,7 +6,7 @@ package com.kingyon.partybuild.domain.learnset;
  * @author toby
  * @create 2017-09-13 上午9:37
  **/
-public enum ArticleType {
+public enum VideoType {
 
     NOTICE(1, "通知公告"),
     PLAN(2, "党团计划"),
@@ -15,12 +15,13 @@ public enum ArticleType {
     DYNAMICS(5, "党建动态"),
     EDUCATION(6, "党内教育"),
     REGULATIONS(7, "政策法规"),
-    GUIDE(8, "办事指南");
+    GUIDE(8, "办事指南"),
+    BOUTIQUE(9, "精品党课");
 
     private String name;
     private Integer type;
 
-    ArticleType(Integer type, String name) {
+    VideoType(Integer type, String name) {
         this.name = name;
         this.type = type;
     }
@@ -41,8 +42,8 @@ public enum ArticleType {
         this.type = type;
     }
 
-    public static ArticleType getArticleType(int type) {
-        for (ArticleType articleType : ArticleType.values()) {
+    public static VideoType getArticleType(int type) {
+        for (VideoType articleType : VideoType.values()) {
             if (type == articleType.getType()) {
                 return articleType;
             }

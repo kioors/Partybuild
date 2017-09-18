@@ -28,6 +28,11 @@
             <groupId>com.github.fge</groupId>
             <artifactId>jackson-coreutils</artifactId>
         </dependency>
+        <!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
     </dependencies>
 
 
